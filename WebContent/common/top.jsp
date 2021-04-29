@@ -18,6 +18,7 @@ a {
 #a_login {
 	font-size: 17px;
 	font-weight: bold;
+	color: blue;
 }
 </style>
 <%
