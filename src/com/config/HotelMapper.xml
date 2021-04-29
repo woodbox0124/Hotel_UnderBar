@@ -15,11 +15,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 </select>
 
 
-
 <!-- 호텔리스트 검색 기능  -->
 <select id="searchKey" parameterType="string" resultType="HotelDTO">
 	select * from hotel where place = #{place}
 </select>
 
+<!-- 룸 info select-->
+<select id="roomInfo" resultType="RoomInfoDTO" parameterType="string">
+select * from roominfo where r_seq=#{seq} order by r_seq
+</select>
 
+<select id="roomList2" resultType="RoomDTO" parameterType="string">
+	select * from room where seq=#{seq}
+</select>
 </mapper>

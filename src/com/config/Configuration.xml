@@ -12,6 +12,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
     <typeAlias type="com.dto.HotelDTO" alias="HotelDTO"/>
     <typeAlias type="com.dto.ResvDTO" alias="ResvDTO"/>
     <typeAlias type="com.dto.ResvMyDTO" alias="ResvMyDTO"/>
+    <typeAlias type="com.dto.RoomInfoDTO" alias="RoomInfoDTO"/>
    </typeAliases>
    
 	<environments default="development">

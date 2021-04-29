@@ -21,6 +21,7 @@ public class HotelSearchServlet extends HttpServlet {
 		String checkout = request.getParameter("date2");
 		String location = request.getParameter("location");
 		String guest = request.getParameter("guest");
+		System.out.println(checkin+"\t"+checkout+"\t"+location+"\t"+guest);
 		HotelService service = new HotelService();
 		List<HotelDTO> list =null;
 		if(location!="") {
