@@ -74,8 +74,11 @@ body {
     padding-left: 27px;
     font-size: 20px;
     font-weight: 700;
-    color: #000000;
+    color: white;
     outline: none;
+}
+option {
+	color: black;
 }
 </style>
 <!-- 자체 CSS 끝-->
