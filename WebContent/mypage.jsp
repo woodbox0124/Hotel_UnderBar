@@ -182,6 +182,8 @@ if (mesg != null) {
 			<div id="button">
 				<button id="submit" type="submit" class="btn btn-outline-primary">회원정보
 					수정하기</button>
+					<button id="cancle" type="submit" class="btn btn-outline-primary">회원정보
+					취소</button>
 				<br>
 
 				<button id="delete" data-xxx="<%=u_id%>"

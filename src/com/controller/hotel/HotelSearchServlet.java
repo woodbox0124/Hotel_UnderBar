@@ -20,23 +20,17 @@ public class HotelSearchServlet extends HttpServlet {
 		String checkin = request.getParameter("date1");
 		String checkout = request.getParameter("date2");
 		String location = request.getParameter("location");
-		String guest = request.getParameter("guest");
+		int guest = Integer.parseInt(request.getParameter("guest"));
 		HotelService service = new HotelService();
-		List<HotelDTO> list =null;
-		if(location!="") {
-			list = service.hotelList(location);
-		}else {
-			list = service.hotelList();
-		}
-		request.setAttribute("hotel", list);
+		List<HotelDTO> list = service.hotelList();
 		
-		System.out.println("servlet"+list);
+		request.setAttribute("hotel", list);
 				
 		HttpSession session = request.getSession();
 		session.setAttribute("checkin", checkin);
 		session.setAttribute("checkout", checkout);
-		session.setAttribute("location", location);
 		session.setAttribute("guest", guest);
+		session.setAttribute("location", location);
 		
 		
 		RequestDispatcher dis = request.getRequestDispatcher("hotelList.jsp");

@@ -40,10 +40,6 @@
 $(function(){	
 	$("#date1").datepicker({minDate: 0});
 	$("#date2").datepicker({minDate: 0});
-	$("#place1").on("change",function(){
-		var s = $(this).val();
-		$("#location").val(s);
-	})
 });
 //]]>
 </script>
@@ -65,62 +61,54 @@ body {
 	font-family: 'twayair', 'Roboto', 'sans-serif' !important;
 	color: white;
 }
-
-.booking_input {
-    width: 100%;
-    height: 54px;
-    background: rgba(255, 255, 255, 0.2);
-    border: solid 2px #ffffff;
-    padding-left: 27px;
-    font-size: 20px;
-    font-weight: 700;
-    color: #000000;
-    outline: none;
-}
 </style>
 <!-- 자체 CSS 끝-->
 </head>
 <body class="is-preload">
 	<jsp:include page="common/menu.jsp"></jsp:include>
 	<div id="wrapper">
+		<div id="bg"></div>
 		<div id="main">
 			<!-- Header -->
 			<header id="header">
-				<div class="home_title">Hotel UnderBar</div>
-					<div class="booking_form_container">
-						<form action="HotelSearchServlet" class="booking_form">
-							<div class="d-flex flex-xl-row flex-column align-items-start justify-content-start">
-								<div class="booking_input_container d-flex flex-lg-row flex-column align-items-start justify-content-start">
-									<div>
-										<input type="text" class="datepicker booking_input booking_input_a booking_in"
-										placeholder="체크인" required="required" id="date1" name="date1" autocomplete="off">
-									</div>
-									<div>
-										<input type="text" class="datepicker booking_input booking_input_a booking_out"
-										placeholder="체크아웃" required="required" id="date2" name="date2" autocomplete="off">
-									</div>
-									<div>
-                                    	<input type="number" class="booking_input booking_input_b" placeholder="인원 수" required="required" name="guest">
-                                    </div>
-										<input type="hidden" name="location" value="" id="location">
-									<div>
-									
-										<select id="place1" class="booking_input">
-											<option value="">모든지역</option>
-											<option value="서울">서울</option>
-											<option value="부산">부산</option>
-											<option value="제주">제주</option>
-										</select>
-									</div>
-									<button class="booking_button trans_200">검색</button>
-								</div>
+							<div class="home_title">Hotel UnderBar</div>
+							<div class="booking_form_container">
+								<form action="HotelSearchServlet" class="booking_form">
+									<div
+										class="d-flex flex-xl-row flex-column align-items-start justify-content-start">
+										<div
+											class="booking_input_container d-flex flex-lg-row flex-column align-items-start justify-content-start">
+											<div>
+												<input type="text"
+													class="datepicker booking_input booking_input_a booking_in"
+													placeholder="체크인" required="required" id="date1"
+													name="date1" autocomplete="off">
+											</div>
+											<div>
+												<input type="text"
+													class="datepicker booking_input booking_input_a booking_out"
+													placeholder="체크아웃" required="required" id="date2"
+													name="date2" autocomplete="off">
+											</div>
+											<div>
+												<input type="number" class="booking_input booking_input_b"
+													placeholder="인원 수" required="required" name="guest">
+											</div>
+											<div>
+												<input type="text" class="booking_input booking_input_b"
+													placeholder="지역" required="required" name="location">
+											</div>
+											<div>
+												<button class="booking_button trans_200">검색</button>
+											</div>
+											</div>
+								</form>
 							</div>
-						</form>
+						</div>
 					</div>
-				</header>
-			</div>
-		</div>
 		
+
+
 
 	<script>
 		window.onload = function() {

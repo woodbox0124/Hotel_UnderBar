@@ -11,12 +11,12 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 <link rel="stylesheet" type="text/css" href="assets/css/font.css">
-<link rel="stylesheet" type="text/css" href="assets/css/default.css">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link
 	href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap"
 	rel="stylesheet">
 <!-- 글꼴 -->
+
 <style type="text/css">
 * {
 	font-family: 'twayair', 'Roboto', 'sans-serif' !important;
@@ -73,7 +73,7 @@
 #container {
 	overflow: hidden;
 	height: 280px;
-	width: 280px;
+	width : 280px;
 	position: relative;
 	position: sticky;
 }
@@ -99,10 +99,6 @@
 
 #container.view_map #mapWrapper {
 	z-index: 10;
-}
-
-#map {
-	border-radius: 10px;
 }
 
 #container.view_map #btnMap {
@@ -154,128 +150,67 @@ img {
 	height: 100%;
 }
 
-#place {
+
+#place{
 	position: absolute;
 	right: 9px;
 }
-
-.card-body>.btn {
+.card-body > .btn
+{
 	position: absolute;
-	right: 9px;
+	right : 9px;
 	bottom: 9px;
 }
 
-.card-body {
+.card-body{
 	height: 170px;
 }
-
-#people>a {
-	display: inline-block;
-	width: 20px;
-	text-align: center;
-	font-size: 20px;
-	text-decoration: none;
+#people > a{
+	display:inline-block;
+	width:20px;
+	text-align:center;
+	font-size:20px;
+	text-decoration:none;
 }
 
-.booking_input {
-	width: 80%;
-	height: 40px;
-	background: rgba(255, 255, 255, 0.2);
-	border: solid 2px #ccc;
-	padding-left: 27px;
-	font-size: 16px;
-	font-weight: 700;
-	color: #000000;
-	outline: none;
-	margin: 20px 0;
-}
-
-.input_btn {
-	margin: 5px;
-}
-
-#filter {
-	margin: 0 auto;
-	text-align: center;
-}
-
-/* footer */
-#footer {
-	overflow: hidden;
-	width: 100%;
-	height: 100%;
-}
-
-.sns_box {
-	width: 56px;
-	height: 25px;
-	margin: 0 auto;
-}
-
-.sns_box>a {
-	width: 25px;
-	display: inline-block;
-	float: left;
-	margin: 0 1.5px;
-}
-
-#certy {
-	width: 1200px;
-	margin: 0 auto;
-	text-align: center;
-}
-
-.foo {
-	float: left;
-	margin: 20px 30px;
-	text-align: left;
-}
-
-#footer_wrap {
-	width: 1200px;
-	height: 260px;
-	margin: 0 auto;
-	text-align: center;
-}
 </style>
 
 </head>
 <body>
 	<div class="section">
-		<div class="wrapper">
-			<div class="filter">
-				<div id="filter">
-					<form action="SearchServlet" method="get">
-						<div id="area">
-							<span>지역</span> <select class="place booking_input"
-								name="location">
-								<option value="">모든지역</option>
-								<option value="서울">서울</option>
-								<option value="부산">부산</option>
-								<option value="제주">제주</option>
-							</select>
-						</div>
+		<div class="wrapper" >
+			<div class="filter" >
+				<form action="SearchServlet" id="filter" method="get">
+					<div id="area">
+						<span>지역</span> 
+						<select class="location" name="location">
+							<option value="all">모든지역</option>
+							<option value="서울">서울</option>
+							<option value="부산">부산</option>
+							<option value="제주">제주</option>
+						</select>
+					</div>
 
+					
+					<div id="map">
 
-						<div id="map">
-
-							<div id="container" class="view_map">
-								<div id="mapWrapper"
-									style="width: 100%; height: 100%; position: relative;">
-									<div id="map" style="width: 100%; height: 100%"></div>
-									<!-- 지도를 표시할 div 입니다 -->
-									<input type="button" id="btnRoadview"
-										onclick="toggleMap(false)" title="로드뷰 보기" value="로드뷰">
-								</div>
-								<div id="rvWrapper"
-									style="width: 100%; height: 100%; position: absolute; top: 0; left: 0;">
-									<div id="roadview" style="height: 100%"></div>
-									<!-- 로드뷰를 표시할 div 입니다 -->
-									<input type="button" id="btnMap" onclick="toggleMap(true)"
-										title="지도 보기" value="지도">
-								</div>
-								<!-- end form -->
-								<script>
+						<div id="container" class="view_map">
+							<div id="mapWrapper"
+								style="width: 100%; height: 100%; position: relative;">
+								<div id="map" style="width: 100%; height: 100%"></div>
+								<!-- 지도를 표시할 div 입니다 -->
+								<input type="button" id="btnRoadview" onclick="toggleMap(false)"
+									title="로드뷰 보기" value="로드뷰">
+							</div>
+							<div id="rvWrapper"
+								style="width: 100%; height: 100%; position: absolute; top: 0; left: 0;">
+								<div id="roadview" style="height: 100%"></div>
+								<!-- 로드뷰를 표시할 div 입니다 -->
+								<input type="button" id="btnMap" onclick="toggleMap(true)"
+									title="지도 보기" value="지도">
+							</div>
+							<!-- end form -->
+							<script>
 								var container = document.getElementById('container'), // 지도와 로드뷰를 감싸고 있는 div 입니다
 							    mapWrapper = document.getElementById('mapWrapper'), // 지도를 감싸고 있는 div 입니다
 							    btnRoadview = document.getElementById('btnRoadview'), // 지도 위의 로드뷰 버튼, 클릭하면 지도는 감춰지고 로드뷰가 보입니다 
@@ -339,22 +274,22 @@ img {
 							    }
 							}
 								</script>
-							</div>
 						</div>
-						<input class="btn btn-primary input_btn" type="reset"
-							value="reset" /> <input class="btn btn-primary input_btn"
-							type="submit" value="search" />
-					</form>
-				</div>
+					</div>
+					<input type="reset" value="reset"/>
+					<input type="submit" value="search" />
+					
+				</form>
 			</div>
 
-			<div class="cards">
-				<%
+<div class="cards">
+			<%
 String checkin = (String) session.getAttribute("checkin");
 String checkout = (String) session.getAttribute("checkout");
-String guest = (String) session.getAttribute("guest");
+int guest = (int) session.getAttribute("guest");
+String location = (String) session.getAttribute("location");
 %>
-				<%
+			<%
 List<HotelDTO> list = (List<HotelDTO>) request.getAttribute("hotel");
 for (int i = 0; i < list.size(); i++) {
 HotelDTO dto = list.get(i);
@@ -368,73 +303,24 @@ double rating = dto.getRating();
 String hotel_img = dto.getHotel_img();
 String hotel_img_real = dto.getHotel_img_real();
 %>
+	
+		<div class="card">
+        	<img src="images/hotel/<%= hotel_img %>.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+            	<h5 class="card-title"><%= name %></h5>
+            	<p class="card-text"><span><%= rating %></span> <span id="place"><%= place %></span></p>
+        
+            	<a href="RoomSearchServlet?seq=<%=seq%>&checkin=<%=checkin%>&checkout=<%=checkout%>&guest=<%=guest%>&location=<%=location%>" class="btn btn-primary">OPEN</a>
+            </div>
+        </div>
 
-				<div class="card">
-					<img src="images/hotel/<%= hotel_img %>.jpg" class="card-img-top"
-						alt="...">
-					<div class="card-body">
-						<h5 class="card-title"><%= name %></h5>
-						<p class="card-text">
-							<span style="color: red;"><%= rating %></span> <span id="place"><%= place %></span>
-						</p>
+<%
+	}
+%>
+	</div>
 
-						<a
-							href="RoomSearchServlet?seq=<%=seq%>&checkin=<%=checkin%>&checkout=<%=checkout%>&place=<%=place%>"
-							class="btn btn-primary">OPEN</a>
-					</div>
-				</div>
-
-				<%
-				}
-				%>
-			</div>
 		</div>
 	</div>
-	<!--  footer  -->
-<div id="footer" style="background: #C0847F; color: #F8F4F0; font-weight: lighter;  padding: 15px 0; position: relative;">
-	<div id="footer_wrap">
-		<div style="font-size: 12px; display: inline-block;">
-			<div class="foo_left foo">
-				<ul>
-					<li class="cs_center"><strong>010-9770-5298</strong></li>
-					<li class="bank_info"><strong>110-354-583312</strong></li>
-					<li>신한은행 <br>예금주 : 이석종(CEFO)
-					</li>
-					<li>고객센터 : 010-9770-5298<br>운영시간 10:00 ~
-						17:00(점심 11:30 ~ 12:30)<br> 토,일,법정공휴일 휴무
-					</li>
-				</ul>
-			</div>
-			<ul class="foo_center foo">
-				<li><b>회사명</b> : HotelUnderBar<b> 대표</b> : 이석종
-				<li>
-				<li><b>대표전화</b> : 010-9770-5298 <b>팩스</b>: 82-02-508-5765</li>
-				<li><b>주소</b> : 서울특별시 강남구 테헤란로 124 삼원타워 5층</li>
-				<li><b>사업자 번호</b>: 220-88-42280
-				<li><b>개인정보관리책임자</b>: 이석종</li>
-				<li><b>이메일</b> : 32popo@naver.com</li>
-				<li><b>카카오톡 채널</b> : HotelUnderBar </li>
-			</ul>
-			<ul class="foo_right foo">
-				<li><a href="#">개인정보처리방침</a><span class="line"></span></li>
-				<li><a href="#">호텔이용안내</a><span class="line"></span></li>
-				<li><a href="#">이용약관 </a><span class="line"></span></li>
-				<li><a href="#">고객센터</a></li>
-			</ul>
-		</div>
-		<div id="certy">
-			HOTEL UNDERBAR [ Easy, Cool, Fancy ]
-				<div class="copy en">ⓒ Copyright HOTEL UNDERBAR All Reserved</div>
-			<div class="sns_box">
-					<a href="https://www.facebook.com/woodbox0124" target="_blank">
-						<img src="assets/css/images/fb.png">
-					</a>
-					<a href="https://www.instagram.com/woodcase/" target="_blank">
-						<img src="assets/css/images/insta.png">
-					</a>
-			</div>
-		</div>
-	</div>
-</div>
+	<%-- <jsp:include page="footer.jsp"></jsp:include> --%>
 </body>
 </html>

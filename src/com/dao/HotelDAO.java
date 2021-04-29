@@ -20,9 +20,9 @@ public class HotelDAO {
 		return list;
 	}
 
-
-	public List<HotelDTO> hotelList(SqlSession session, String location) {
-		List<HotelDTO> list = session.selectList("HotelMapper.hotelLoc",location);
-		return list;
+	public List<String> hotelMinprice(SqlSession session) {
+		List<String> price = session.selectList("HotelMapper.hotelMinprice");
+		//System.out.println(price);
+		return price;
 	}
 }

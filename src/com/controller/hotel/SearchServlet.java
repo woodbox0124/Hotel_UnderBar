@@ -21,19 +21,13 @@ public class SearchServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String location = request.getParameter("location");
+		String place = request.getParameter("location");
 		
+		System.out.println(place);
 		HotelService service = new HotelService();
-	    List<HotelDTO> list =null;
-	    
-		if(location!="") {
-			list = service.searchKey(location);
-		}else {
-			list = service.hotelList();
-		}
+	    List<HotelDTO> list = service.searchKey(place);
+		
         
-		
-		
 		request.setAttribute("hotel", list);
 
 		RequestDispatcher dis = request.getRequestDispatcher("hotelList.jsp");

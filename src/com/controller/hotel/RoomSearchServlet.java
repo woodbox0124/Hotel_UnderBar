@@ -19,17 +19,20 @@ public class RoomSearchServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String checkin = request.getParameter("checkin");
 		String checkout = request.getParameter("checkout");
-		String place = request.getParameter("place");
+		int guest = Integer.parseInt(request.getParameter("guest"));
+		String location = request.getParameter("location");
 		 String seq=request.getParameter("seq");//호텔시퀀스받아오기
 			System.out.println("hotelseq"+seq);
 		    RoomService service = new RoomService(); 
-		   List<RoomDTO> list =service.roomList(seq); 
+		   List<RoomDTO> list = service.roomList(seq); 
 		    System.out.println("roomlist"+list);
 		    request.setAttribute("roomlist", list); //해당 호텔의 룸리스트
 		    HttpSession session = request.getSession();
+		    session.setAttribute("list", list);
 		    session.setAttribute("checkin", checkin);
 		    session.setAttribute("checkout", checkout);
-		    session.setAttribute("place", place);
+		    session.setAttribute("guest", guest);
+		    session.setAttribute("location", location);
 		    
 
 			RequestDispatcher dis = request.getRequestDispatcher("roomlist.jsp");

@@ -10,6 +10,7 @@
 <body>
 <jsp:include page="common/top.jsp" flush="true"></jsp:include><br>
 <jsp:include page="hotel/roomlist.jsp" flush="true"></jsp:include><br>
+<jsp:include page="hotel/footer.jsp" flush="true"></jsp:include><br>
 
 
 </body>
