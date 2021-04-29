@@ -27,12 +27,12 @@ public class HotelService {
 		return list;
 	}
 
-	public List<HotelDTO> searchKey(String place) {
+	public List<HotelDTO> searchKey(String location) {
 		SqlSession session = MySqlSessionFactory.getSession();
 		List<HotelDTO> list = null;
 		try {
 			HotelDAO dao = new HotelDAO();
-			list = dao.searchKey(session, place);
+			list = dao.searchKey(session, location);
 		}catch (Exception e) {
 			e.printStackTrace();
 		}finally {
@@ -41,18 +41,19 @@ public class HotelService {
 		return list;
 	}
 
-	public List<String> hotelMinprice() {
+
+	public List<HotelDTO> hotelList(String place) {
 		SqlSession session = MySqlSessionFactory.getSession();
 		System.out.println(session);
-		List<String> price=null;
+		List<HotelDTO> list = null;
 		try {
 			HotelDAO dao = new HotelDAO();
-			price = dao.hotelMinprice(session);
+			list = dao.hotelList(session,place);
 		}catch (Exception e) {
 			e.printStackTrace();
 		}finally {
 			session.close();
 		}
-		return price;
+		return list;
 	}
 }

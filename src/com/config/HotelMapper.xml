@@ -6,19 +6,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <select id="hotelList" resultType="HotelDTO">
 	select * from hotel
 </select>
+<select id="hotelLoc" parameterType="string" resultType="HotelDTO">
+	select * from hotel where place=#{location}
+</select>
 
 <select id="roomList" resultType="RoomDTO" parameterType="string">
 	select * from room where hotelseq=#{seq}
 </select>
 
-<select id="hotelMinprice" resultType="string">
-select min(price) from room group by hotelseq
 
-</select>
 
 <!-- 호텔리스트 검색 기능  -->
 <select id="searchKey" parameterType="string" resultType="HotelDTO">
-	select * from hotel where place = #{place}
+	select * from hotel where place = #{location}
 </select>
 
 
