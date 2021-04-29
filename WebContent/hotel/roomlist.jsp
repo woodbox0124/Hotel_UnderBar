@@ -139,8 +139,7 @@ for(int i=0; i<list.size(); i++){
 %>
 
 		<div class="card">
-			<img src="images/room/<%= room_img %>.jpg" class="card-img-top"
-				alt="...">
+			<img src="images/room/<%= room_img %>.jpg" class="card-img-top" alt="...">
 			<div class="card-body">
 				<h5 class="card-title"><%= name %></h5>
 				<p class="card-text">
