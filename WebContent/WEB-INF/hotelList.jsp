@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="com.dto.HotelDTO" %>
+<%@ page import="java.util.List" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +9,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h4>안녕하세요</h4>
+	<%-- <jsp:include page="" flush="true"></jsp:include> --%>
+	<jsp:include page="/hotel/hotelList.jsp" flush="true" ></jsp:include>
+	
 </body>
 </html>

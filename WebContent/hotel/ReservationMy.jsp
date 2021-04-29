@@ -17,16 +17,14 @@
 <!-- 글꼴 -->
 <link rel="stylesheet" type="text/css" href="assets/css/font.css">
 <link rel="preconnect" href="https://fonts.gstatic.com">
-<link
-	href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap"
-	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
 <!-- 글꼴 -->
 <link rel="stylesheet" type="text/css" href="assets/css/default.css">
 <!-- table css 시작 -->
 <style type="text/css">
-* {
-	font-family: 'twayair', 'Roboto', 'sans-serif' !important;
-}
+*{
+  font-family: 'twayair' , 'Roboto' ,'sans-serif' !important;	
+ }
 
 a {
 	font-size: 40px;
@@ -135,7 +133,7 @@ session.removeAttribute("mesg");
 	  MemberDTO mdto = (MemberDTO)session.getAttribute("login");
     String mu_id = mdto.getU_id();
     String mu_name = mdto.getU_name();
-%>
+%>    
 
 
 <body class="is-preload">
@@ -170,13 +168,12 @@ session.removeAttribute("mesg");
 								<td>인원 수</td>
 								<td>가격</td>
 								<td>수정</td>
-								<td>취소</td>
 							</tr>
-							<% 		
-							List<ResvMyDTO> list = (List<ResvMyDTO>)request.getAttribute("resvMy");
+							<% 		List<ResvMyDTO> list = (List<ResvMyDTO>)request.getAttribute("resvMy");
 	for(int i = 0; i <list.size();i++)
 	{
 		ResvMyDTO dto = list.get(i);
+		
 		
 		double rating = dto.getRating();
 		String hotelname = dto.getHotelname();
@@ -187,8 +184,6 @@ session.removeAttribute("mesg");
 		String resvdate = dto.getResvdate();
 		int guest = dto.getGuest();
 		int price = dto.getPrice();
-		
-		
 	%>
 							<tr>
 								<td><%= rating %></td>
@@ -203,12 +198,9 @@ session.removeAttribute("mesg");
 									<button type="button" class="btn btn-outline-primary"
 										style="margin-bottom: 15px">수정</button>
 								</td>
-								<td>
-									<button id="cancle" type="button"
-										class="btn btn-outline-primary" data-xxx="<%=seq%>" style="margin-bottom: 15px">취소</button>
-								</td>
 							</tr>
-	<%
+<%
+  
 	}
     %>
 						</tbody>
@@ -216,21 +208,21 @@ session.removeAttribute("mesg");
 					</table>
 
 
+
 				</form>
-			</header>
-			<div class="home_container">
-				<div class="container">
-					<div class="row">
-						<div class="col">
-							<div class="home_content text-center">
-								<div
-									class="d-flex flex-xl-row flex-column align-items-start justify-content-start">
+				<div class="home_container">
+					<div class="container">
+						<div class="row">
+							<div class="col">
+								<div class="home_content text-center">
+									<div
+										class="d-flex flex-xl-row flex-column align-items-start justify-content-start">
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
 		</div>
 
 		<div id="nav">
@@ -242,16 +234,6 @@ session.removeAttribute("mesg");
 			window.onload = function() { document.body.classList.remove('is-preload'); }
 			window.ontouchmove = function() { return false; }
 			window.onorientationchange = function() { document.body.scrollTop = 0; }
-			$(document).ready(function () {
-				$("#cancle").click(function () {
-					console.log("a");
-					if(confirm("취소하시겠습니까?")){
-						alert("링크첨부예정");
-						console.log("b");
-					}
-				})
-			})
-
-			</script>
+		</script>
 </body>
 </html>
