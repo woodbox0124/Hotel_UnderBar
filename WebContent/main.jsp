@@ -103,8 +103,7 @@ body {
                                     	<input type="number" class="booking_input booking_input_b" placeholder="인원 수" required="required" name="guest">
                                     </div>
 										<input type="hidden" name="location" value="" id="location">
-									<div>
-									
+									<div style="width:200px;">
 										<select id="place1" class="booking_input">
 											<option value="">모든지역</option>
 											<option value="서울">서울</option>

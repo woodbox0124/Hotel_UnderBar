@@ -1,44 +1,51 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-
-
+    pageEncoding="UTF-8"%>
 <head>
-<link rel="stylesheet" href="assets/css/default.css">
-<style>
-	.sns_box {
-		width:56px;
-		height:25px;
-		margin:0 auto;
-	}
-	.sns_box > a {
-	width:25px;
-	display:inline-block;
-	float:left;
-	margin:0 1.5px;
 	
-	}
-	#certy{
-		width:1200px;
-		margin:0 auto;
-		text-align:center;
-		
-	}
-	.foo{
-		float:left;
-		margin:20px 30px;
-		text-align:left;
-		
-	}
-	#footer_wrap{
-		width: 1200px;
-		margin:0 auto;
-		text-align:center;
-	}
-</style>
+	<style>
+		/* footer */
+#footer {
+	overflow: hidden;
+	width: 100%;
+	height: 260px;
+}
+
+.sns_box {
+	width: 56px;
+	height: 25px;
+	margin: 0 auto;
+}
+
+.sns_box>a {
+	width: 25px;
+	display: inline-block;
+	float: left;
+	margin: 0 1.5px;
+}
+
+#certy {
+	width: 1200px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.foo {
+	float: left;
+	margin: 20px 30px;
+	text-align: left;
+}
+
+#footer_wrap {
+	width: 1200px;
+	height: 260px;
+	margin: 0 auto;
+	text-align: center;
+}
+	</style>
 </head>
 <div id="footer" style="background: #C0847F; color: #F8F4F0; font-weight: lighter;  padding: 15px 0; position: relative;">
 	<div id="footer_wrap">
-		<div id="footer" style="font-size: 12px; display: inline-block; margin-left: 68px;">
+		<div style="font-size: 12px; display: inline-block;">
 			<div class="foo_left foo">
 				<ul>
 					<li class="cs_center"><strong>010-9770-5298</strong></li>
@@ -67,19 +74,17 @@
 				<li><a href="#">고객센터</a></li>
 			</ul>
 		</div>
-	</div>
-	<div id="certy">
-		HOTEL UNDERBAR [ Easy, Cool, Fancy ]
-			<div class="copy en">ⓒ Copyright HOTEL UNDERBAR All Reserved</div>
-		<div class="sns_box">
-				<a href="https://www.facebook.com/woodbox0124" target="_blank">
-					<img src="assets/css/images/fb.png">
-				</a>
-				<a href="https://www.instagram.com/woodcase/" target="_blank">
-					<img src="assets/css/images/insta.png">
-				</a>
+		<div id="certy">
+			HOTEL UNDERBAR [ Easy, Cool, Fancy ]
+				<div class="copy en">ⓒ Copyright HOTEL UNDERBAR All Reserved</div>
+			<div class="sns_box">
+					<a href="https://www.facebook.com/woodbox0124" target="_blank">
+						<img src="assets/css/images/fb.png">
+					</a>
+					<a href="https://www.instagram.com/woodcase/" target="_blank">
+						<img src="assets/css/images/insta.png">
+					</a>
+			</div>
 		</div>
 	</div>
 </div>
-		
-			
