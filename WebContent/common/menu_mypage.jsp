@@ -25,19 +25,25 @@
 	crossorigin="anonymous"></script>
 
 <style type="text/css">
-*{
+
+#main_header{
 	font-family: 'twayair', 'Roboto', 'sans-serif' !important;
 	font-size: 24px;
-	color: black;
 	font-weight: bold;
+	position: relative;
+	top: 1px;
+	left: 1px;
 }
-#menu{
-    height: 53px;
+
+#menu {
+	height: 53px;
 }
 
 a {
 	text-decoration: none
 }
+
+
 </style>
 </head>
 <body>
@@ -53,7 +59,8 @@ a {
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 					<li class="nav-item" id="li_main"><a class="nav-link active"
-						aria-current="page" href="main.jsp" id="main">Hotel UnderBar</a></li>
+						aria-current="page" href="main.jsp" id="main_header">Hotel
+							UnderBar</a></li>
 					<li class="nav-item"></li>
 					<li class="nav-item dropdown">
 

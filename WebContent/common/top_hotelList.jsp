@@ -2,22 +2,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <style type="text/css">
+
 #menu_bar {
 	font-family: 'twayair', 'Roboto', 'sans-serif' !important;
 	font-size: 17px;
-	color: black;
 	font-weight: bold;
 	position: relative;
-	left: 1px;
-}
-
-a {
+	left: 2px;
 	text-decoration: none
 }
 
 #a_login {
 	font-size: 17px;
 	font-weight: bold;
+}
+.a{
+	color: blue;
 }
 </style>
 <%
@@ -27,9 +27,10 @@ if (dto != null) {
 	String u_id = dto.getU_id();
 %>
 <div id=menu_bar>
-	<a class="a"><%=u_id%>님 어서오세요.</a> <a href="LogoutServlet" class="a">&nbsp;로그아웃</a>
+	<a class="a1"><%=u_id%>님 어서오세요.</a>
+    <a href="LogoutServlet" class="a">&nbsp;로그아웃</a>
 	<a href="MyPageServlet" class="a">&nbsp;마이페이지&nbsp;</a>
-	 <a href="ResvMyServlet" class="a">예약 확인</a>
+	<a href="ResvMyServlet" class="a">예약 확인</a>
 	<%
 		} else {
 	%>
