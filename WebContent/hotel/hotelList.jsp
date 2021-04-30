@@ -115,20 +115,16 @@
 }
 
 
-.wrapper > div{
+.wrapper .filter, .cards{
 	float: left;
 }
 
-.page > a{
-   margin: 0 auto;
-}
-
-
 .section .filter {
 	width: 280px;
-	height: 100%;
+	height: 920px;
 	margin: 0 20px;
 }
+
 
 .section .cards {
 	width: 880px;
@@ -229,10 +225,13 @@ img {
 	margin: 0 auto;
 	text-align: center;
 }
+.page{
+	font-size:20px;
+	text-align:center;
+}
 </style>
 
 </head>
-
 	<div class="section">
 		<div class="wrapper">
 			<div class="filter">
@@ -342,28 +341,27 @@ img {
 
 			<div class="cards">
 				<%
-String checkin = (String) session.getAttribute("checkin");
-String checkout = (String) session.getAttribute("checkout");
-String guest = (String) session.getAttribute("guest");
-%>
-<%
-PageDTO pDTO = (PageDTO)request.getAttribute("pDTO");
-String location = (String)request.getAttribute("location");
-List<HotelDTO> list = pDTO.getList();
-
-
-for (int i = 0; i < list.size(); i++) {
-HotelDTO dto = list.get(i);
-
-String seq = dto.getSeq();
-String name = dto.getName();
-String place = dto.getPlace();
-String addr = dto.getAddr();
-double use_count = dto.getUse_count();
-double rating = dto.getRating();
-String hotel_img = dto.getHotel_img();
-String hotel_img_real = dto.getHotel_img_real();
-%>
+				String checkin = (String) session.getAttribute("checkin");
+				String checkout = (String) session.getAttribute("checkout");
+				String guest = (String) session.getAttribute("guest");
+				%>
+				<%
+				PageDTO pDTO = (PageDTO)request.getAttribute("pDTO");
+				String location = (String)request.getAttribute("location");
+				List<HotelDTO> list = pDTO.getList();
+				
+				for (int i = 0; i < list.size(); i++) {
+				HotelDTO dto = list.get(i);
+				
+				String seq = dto.getSeq();
+				String name = dto.getName();
+				String place = dto.getPlace();
+				String addr = dto.getAddr();
+				double use_count = dto.getUse_count();
+				double rating = dto.getRating();
+				String hotel_img = dto.getHotel_img();
+				String hotel_img_real = dto.getHotel_img_real();
+				%>
 
 				<div class="card">
 					<img src="images/hotel/<%= hotel_img %>.jpg" class="card-img-top"
@@ -379,34 +377,34 @@ String hotel_img_real = dto.getHotel_img_real();
 							class="btn btn-primary">OPEN</a>
 					</div>
 				</div>
-
 				<%
 				}
 				%>
-			</div>
-		</div>
-		</div>
-	<div class="page">
-<%
-		int curPage = pDTO.getCurPage();//현재페이지
-		int perPage = pDTO.getPerPage();//페이지당 게시물수
-		int totalCount = pDTO.getTotalCount();//전체 레코드수 
-		int totalPage = totalCount/perPage;// 필요한 페이지
-		System.out.println(curPage);
-		System.out.println(perPage);
-		System.out.println(totalCount);
-		System.out.println(totalPage);
-
-		if(totalCount%perPage!=0) totalPage++;
-		for(int i = 1; i <= totalPage; i++){
-			if(i==curPage){
-				System.out.print("if i"+i);
-				out.print(i+"&nbsp;");
-			}else{
-				System.out.print("else i"+i);
-				out.print("<a href='HotelSearchServlet?curPage="+i+"&location="+location+"'>"+i+"</a>&nbsp;");
-			}//end for		
-		}
+		<div class="page">
+		<%
+			int curPage = pDTO.getCurPage();//현재페이지
+			int perPage = pDTO.getPerPage();//페이지당 게시물수
+			int totalCount = pDTO.getTotalCount();//전체 레코드수 
+			int totalPage = totalCount/perPage;// 필요한 페이지
+			System.out.println(curPage);
+			System.out.println(perPage);
+			System.out.println(totalCount);
+			System.out.println(totalPage);
+	
+			if(totalCount%perPage!=0) totalPage++;
+			for(int i = 1; i <= totalPage; i++){
+				if(i==curPage){
+					System.out.print("if i"+i);
+					out.print(i+"&nbsp;");
+				}else{
+					System.out.print("else i"+i);
+					out.print("<a href='HotelSearchServlet?curPage="+i+"&location="+location+"'>"+i+"</a>&nbsp;");
+				}//end for		
+			}
 		%>
+		
 		</div>
+			</div>
+	</div><!-- end wrapper -->
+</div><!-- end section -->
 		
