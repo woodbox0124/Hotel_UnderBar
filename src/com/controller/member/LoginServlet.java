@@ -57,15 +57,16 @@ public class LoginServlet extends HttpServlet {
 		    	int num  = service.idCheck(u_id);//아이디가 일치하지 않을 경우
 		    	int num1 = service.pwchk(u_pw);// 비밀번호가 일치하지 않을 경우
 		    	
-				System.out.println(num1);
-				if(num1==0) {
-					session.setAttribute("mesg", "비밀번호를 확인 하시길 바랍니다.");
+		    	System.out.println("num \t"+num);
+				System.out.println("num1 \t"+num1);
+				if(num==1 || num1==1 ){
+					session.setAttribute("mesg", "아이디 및 비밀번호를 확인 하시길 바랍니다.");
 					if(num==0 && num1==0) {
-						session.setAttribute("mesg", "회원가입 후 이용 바랍니다.");
+						session.setAttribute("mesg", "회원가입 후 이용 바랍니다.");						
 					}
 		           nextPage="LoginUIServlet";		
 		    }		
-	     }
+	     }//end else
 		response.sendRedirect(nextPage); //페이지 두개 중 하나로 이동
 	  }
 

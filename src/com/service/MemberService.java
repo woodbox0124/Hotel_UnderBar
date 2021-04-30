@@ -7,7 +7,6 @@ import org.apache.ibatis.session.SqlSession;
 import com.config.MySqlSessionFactory;
 import com.dao.MemberDAO;
 import com.dto.MemberDTO;
-import com.dto.ResvDTO;
 
 public class MemberService {
 
