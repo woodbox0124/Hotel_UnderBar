@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import com.config.MySqlSessionFactory;
 import com.dao.HotelDAO;
 import com.dto.HotelDTO;
+import com.dto.PageDTO;
 
 public class HotelService {
 
@@ -55,5 +56,32 @@ public class HotelService {
 			session.close();
 		}
 		return list;
+	}
+
+	public PageDTO hotelList1(int curPage, String location) {
+		SqlSession session = MySqlSessionFactory.getSession();
+		PageDTO pDTO = null;
+		try {
+			HotelDAO dao = new HotelDAO();
+			pDTO = dao.hotelList1(session, location, curPage);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			session.close();
+		}
+		return pDTO;
+	}
+	public PageDTO hotelList1(int curPage) {
+		SqlSession session = MySqlSessionFactory.getSession();
+		PageDTO pDTO = null;
+		try {
+			HotelDAO dao = new HotelDAO();
+			pDTO = dao.hotelList1(session, curPage);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			session.close();
+		}
+		return pDTO;
 	}
 }

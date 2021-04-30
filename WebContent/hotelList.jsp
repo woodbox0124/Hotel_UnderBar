@@ -12,6 +12,7 @@
 	<%-- <jsp:include page="" flush="true"></jsp:include> --%>
 	<jsp:include page="common/menu_hotelList.jsp" flush="true" />
 	<jsp:include page="hotel/hotelList.jsp" flush="true" ></jsp:include>
+	<jsp:include page="hotel/footer.jsp" flush="true"></jsp:include>
 	
 </body>
 </html>

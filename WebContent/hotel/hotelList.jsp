@@ -1,4 +1,5 @@
 
+<%@page import="com.dto.PageDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="com.dto.HotelDTO"%>
@@ -113,9 +114,15 @@
 	margin: 0 auto;
 }
 
-.wrapper>div {
+
+.wrapper > div{
 	float: left;
 }
+
+.page > a{
+   margin: 0 auto;
+}
+
 
 .section .filter {
 	width: 280px;
@@ -339,8 +346,12 @@ String checkin = (String) session.getAttribute("checkin");
 String checkout = (String) session.getAttribute("checkout");
 String guest = (String) session.getAttribute("guest");
 %>
-				<%
-List<HotelDTO> list = (List<HotelDTO>) request.getAttribute("hotel");
+<%
+PageDTO pDTO = (PageDTO)request.getAttribute("pDTO");
+String location = (String)request.getAttribute("location");
+List<HotelDTO> list = pDTO.getList();
+
+
 for (int i = 0; i < list.size(); i++) {
 HotelDTO dto = list.get(i);
 
@@ -374,7 +385,28 @@ String hotel_img_real = dto.getHotel_img_real();
 				%>
 			</div>
 		</div>
-	</div>
+		</div>
+	<div class="page">
+<%
+		int curPage = pDTO.getCurPage();//현재페이지
+		int perPage = pDTO.getPerPage();//페이지당 게시물수
+		int totalCount = pDTO.getTotalCount();//전체 레코드수 
+		int totalPage = totalCount/perPage;// 필요한 페이지
+		System.out.println(curPage);
+		System.out.println(perPage);
+		System.out.println(totalCount);
+		System.out.println(totalPage);
 
-<jsp:include page="footer.jsp" flush="true"></jsp:include>
-
+		if(totalCount%perPage!=0) totalPage++;
+		for(int i = 1; i <= totalPage; i++){
+			if(i==curPage){
+				System.out.print("if i"+i);
+				out.print(i+"&nbsp;");
+			}else{
+				System.out.print("else i"+i);
+				out.print("<a href='HotelSearchServlet?curPage="+i+"&location="+location+"'>"+i+"</a>&nbsp;");
+			}//end for		
+		}
+		%>
+		</div>
+		

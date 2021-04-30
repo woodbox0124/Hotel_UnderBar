@@ -3,11 +3,19 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="HotelMapper">
-<select id="hotelList" resultType="HotelDTO">
+<select id="hotelList" parameterType="string" resultType="HotelDTO" >
 	select * from hotel
 </select>
+
 <select id="hotelLoc" parameterType="string" resultType="HotelDTO">
-	select * from hotel where place=#{location}
+	select * from hotel where place= #{location}
+</select>
+
+<select id="totalCount" parameterType="string" resultType="int">
+	select count(*) from hotel where place= #{location}
+</select>
+<select id="totalCount1" parameterType="string" resultType="int">
+	select count(*) from hotel 
 </select>
 
 <select id="roomList" resultType="RoomDTO" parameterType="string">
