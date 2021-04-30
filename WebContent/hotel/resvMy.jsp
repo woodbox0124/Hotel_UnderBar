@@ -17,90 +17,47 @@
 <!-- 글꼴 -->
 <link rel="stylesheet" type="text/css" href="assets/css/font.css">
 <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap"
+	rel="stylesheet">
 <!-- 글꼴 -->
 <link rel="stylesheet" type="text/css" href="assets/css/default.css">
 <!-- table css 시작 -->
 <style type="text/css">
-*{
-  font-family: 'twayair' , 'Roboto' ,'sans-serif' !important;	
- }
-
-a {
-	font-size: 40px;
-	color: white;
+* {
+	font-family: 'twayair', 'Roboto', 'sans-serif' !important;
 }
 
-.container th h1 {
-	font-weight: bold;
-	font-size: 1em;
-	text-align: left;
-	color: #185875;
+form {
+	border: 3px solid;
+	position: relative;
+	top: 67px;
+	width: 99%;
+	left: 10px;
+	height: 255px;
 }
 
-.container td {
-	font-weight: normal;
-	font-size: 20px;
-	-webkit-box-shadow: 0 2px 2px -2px #0E1119;
-	-moz-box-shadow: 0 2px 2px -2px #0E1119;
-	box-shadow: 0 2px 2px -2px #0E1119;
+h1 {
+	border: 3px solid;
 }
 
-.container {
-	text-align: left;
-	overflow: hidden;
-	width: 200%;
-	margin: auto;
-	display: table;
-	padding: 0 0 8em 0;
-}
-
-.container td, .container th {
-	padding-bottom: 2%;
-	padding-top: 2%;
-	padding-left: 0.3%;
-	text-align: center;
-}
-
-/* Background-color of the odd rows */
-.container tr:nth-child(odd) {
-	background-color: #323C50;
-}
-
-/* Background-color of the even rows */
-.container tr:nth-child(even) {
-	background-color: #2C3446;
-}
-
-.container th {
-	background-color: #1F2739;
-}
-
-.container td:first-child {
-	color: #FB667A;
-}
-
-@media ( max-width : 800px) {
-	.container td:nth-child(4), .container th:nth-child(4) {
-		display: none;
-	}
-}
-
-.update {
-	color: black;
+#test {
+	border: 3px solid;
 }
 </style>
 <!-- jQuery 시작 -->
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
+
  $(function() {
-	 $("#delete").click(function() {
-		 var u_id = $(this).attr("data-xxx");
-		 console.log(u_id);
-		 location.href="MemberDeleteServlet?u_id="+u_id;
-	 })	
-});
+     $(".cancel").click(function() {
+        var seq = $(this).attr("data-xxx");
+        if(confirm("취소하시겠습니까?")){
+        	location.href="ResvCancle?seq="+seq;
+          }
+     })   
+ });
 </script>
 <!-- jQuery 끝-->
 <!-- table css 끝 -->
@@ -111,7 +68,6 @@ a {
 	href="styles/bootstrap-4.1.2/bootstrap.min.css">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
-<link rel="stylesheet" href="assets/css/main.css" />
 <noscript>
 	<link rel="stylesheet" href="assets/css/noscript.css" />
 </noscript>
@@ -130,10 +86,10 @@ session.removeAttribute("mesg");
 </head>
 
 <%
-	  MemberDTO mdto = (MemberDTO)session.getAttribute("login");
+	MemberDTO mdto = (MemberDTO)session.getAttribute("login");
     String mu_id = mdto.getU_id();
     String mu_name = mdto.getU_name();
-%>    
+%>
 
 
 <body class="is-preload">
@@ -141,9 +97,6 @@ session.removeAttribute("mesg");
 		<div id="bg"></div>
 		<div id="overlay"></div>
 		<div id="main">
-			<nav class="hotelcol-1">
-				<a href="MainServlet">Hotel UnderBar</a>
-			</nav>
 			<!-- Header -->
 			<header id="header">
 				<form action="MemberUpdateServlet">
@@ -157,8 +110,9 @@ session.removeAttribute("mesg");
 									</center>
 								</td>
 							</tr>
-							<tr>
+							<tr id="test">
 
+								<td>예약번호</td>
 								<td>평점</td>
 								<td>호텔이름</td>
 								<td>룸 종류</td>
@@ -168,13 +122,15 @@ session.removeAttribute("mesg");
 								<td>인원 수</td>
 								<td>가격</td>
 								<td>수정</td>
+								<td>취소</td>
+								
 							</tr>
 							<% 		List<ResvMyDTO> list = (List<ResvMyDTO>)request.getAttribute("resvMy");
 	for(int i = 0; i <list.size();i++)
 	{
 		ResvMyDTO dto = list.get(i);
 		
-		
+		int seq = dto.getSeq();
 		double rating = dto.getRating();
 		String hotelname = dto.getHotelname();
 		String addr = dto.getAddr();
@@ -184,8 +140,16 @@ session.removeAttribute("mesg");
 		String resvdate = dto.getResvdate();
 		int guest = dto.getGuest();
 		int price = dto.getPrice();
+		int cancel = dto.getCancel();
+		
+		if(cancel ==  0){
+			
+		
 	%>
+
 							<tr>
+
+								<td><%= seq %></td>
 								<td><%= rating %></td>
 								<td><%=hotelname %></td>
 								<td><%= roomname %></td>
@@ -194,13 +158,20 @@ session.removeAttribute("mesg");
 								<td><%= resvdate %></td>
 								<td><%= guest %></td>
 								<td><%= price %></td>
+							
+
 								<td>
 									<button type="button" class="btn btn-outline-primary"
 										style="margin-bottom: 15px">수정</button>
 								</td>
+								<td>
+								<button type="button" class="btn btn-outline-primary cancel"
+									style="margin-bottom: 15px" data-xxx="<%=seq%>">취소</button>
+								</td>
 							</tr>
-<%
+							<%
   
+	}
 	}
     %>
 						</tbody>
@@ -210,27 +181,8 @@ session.removeAttribute("mesg");
 
 
 				</form>
-				<div class="home_container">
-					<div class="container">
-						<div class="row">
-							<div class="col">
-								<div class="home_content text-center">
-									<div
-										class="d-flex flex-xl-row flex-column align-items-start justify-content-start">
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-		</div>
 
-		<div id="nav">
-			<ul>
-				<li><jsp:include page="../common/top.jsp" flush="false" /></li>
-			</ul>
-		</div>
-		<script>
+				<script>
 			window.onload = function() { document.body.classList.remove('is-preload'); }
 			window.ontouchmove = function() { return false; }
 			window.onorientationchange = function() { document.body.scrollTop = 0; }

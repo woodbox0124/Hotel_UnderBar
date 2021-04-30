@@ -1,25 +1,24 @@
 package com.dto;
 
-public class ResvDTO 
-{
-	private String seq;
-    private String hotelseq;
-    private String u_id;
-    private String roomseq;
-    private String checkin;
-    private String checkout;
-    private String resvdate;
-    private int price;
-    private int guest;
-    private String cancel;
-    
+public class ResvDTO {
+	private int seq;
+	private String hotelseq;
+	private String u_id;
+	private String roomseq;
+	private String checkin;
+	private String checkout;
+	private String resvdate;
+	private int price;
+	private int guest;
+	private int cancel;
+
 	public ResvDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public ResvDTO(String seq, String hotelseq, String u_id, String roomseq, String checkin, String checkout,
-			String resvdate, int price, int guest, String cancel) {
+	public ResvDTO(int seq, String hotelseq, String u_id, String roomseq, String checkin, String checkout,
+			String resvdate, int price, int guest, int cancel) {
 		super();
 		this.seq = seq;
 		this.hotelseq = hotelseq;
@@ -33,12 +32,11 @@ public class ResvDTO
 		this.cancel = cancel;
 	}
 
-	
-	public String getSeq() {
+	public int getSeq() {
 		return seq;
 	}
 
-	public void setSeq(String seq) {
+	public void setSeq(int seq) {
 		this.seq = seq;
 	}
 
@@ -106,11 +104,11 @@ public class ResvDTO
 		this.guest = guest;
 	}
 
-	public String getCancel() {
+	public int getCancel() {
 		return cancel;
 	}
 
-	public void setCancel(String cancel) {
+	public void setCancel(int cancel) {
 		this.cancel = cancel;
 	}
 
@@ -120,6 +118,5 @@ public class ResvDTO
 				+ ", checkin=" + checkin + ", checkout=" + checkout + ", resvdate=" + resvdate + ", price=" + price
 				+ ", guest=" + guest + ", cancel=" + cancel + "]";
 	}
-    
-    
+
 }

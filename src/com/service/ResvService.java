@@ -44,5 +44,20 @@ public class ResvService {
 		}
 		return num;
 	}
+	public int resvCancel(int seq) {
+		SqlSession session = MySqlSessionFactory.getSession();
+		int num=0;
+		try {
+			ResvDAO dao = new ResvDAO();
+			num = dao.resvCancel(session,seq);
+			System.out.println("dao"+seq);
+			session.commit();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			session.close();
+		}
+		return num;
+	}
 
 }

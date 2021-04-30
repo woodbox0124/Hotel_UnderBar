@@ -32,7 +32,7 @@ public class ResvMyServlet extends HttpServlet {
 		//2. 
 		// 사용자 id를 꺼내 sevice.mypage(id)이용 DB에서 데이터를 다시 가져오기
 		if(dto!=null) {//로그인 정보가 있는 경우
-			nextPage = "ReservationMy.jsp";
+			nextPage = "resvMy.jsp";
 			String u_id = dto.getU_id();
 			System.out.println(u_id);
 			ResvService service = new ResvService();

@@ -19,4 +19,9 @@ public class ResvDAO {
 		return num;
 		}
 
+	public int resvCancel(SqlSession session, int seq) {
+		int num = session.update("ResvMapper.resvCancel", seq);
+		System.out.println("dao num = "+num);
+		return num;
+	}
 }

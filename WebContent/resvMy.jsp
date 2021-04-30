@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<jsp:include page="hotel/ReservationMy.jsp" flush="true"></jsp:include><br>
+<jsp:include page="common/menu_Resv.jsp" flush="true" />
+<jsp:include page="hotel/resvMy.jsp" flush="true"></jsp:include><br>
 </body>
 </html>

@@ -28,12 +28,8 @@ String u_email = dto.getU_email();
 <!-- 글꼴 -->
 <!-- table css 시작 -->
 <style type="text/css">
-* {
-	font-family: 'twayair', 'Roboto', 'sans-serif' !important;
-}
-
-body {
-	background-color: #A2A2A2;
+*{
+	font-family: 'twayair', 'Roboto', 'sans-serif';
 }
 
 #container {
@@ -86,6 +82,14 @@ h1 {
 a {
 	text-decoration: none
 }
+
+ #pw {
+	font-family : 'Source Sans Pro', sans-serif;
+} 
+.update{
+		width: 30%;
+	}
+
 </style>
 <!-- jQuery 시작 -->
 <script
@@ -150,20 +154,19 @@ if (mesg != null) {
 							<td><%=u_name%><input type="hidden" value="<%=u_name%>"
 								name="u_name"></td>
 						</tr>
-						<tr id="u_pw">
+						<tr>
 							<td>비밀번호</td>
-							<td><input type="password" class="update" value="<%=u_pw%>"
+							<td><input type="password" class="update"id="pw" value="<%=u_pw%>"
 								name="u_pw"></td>
 						</tr>
-						<tr id="u_pw2">
+						<tr>
 							<td>비밀번호 확인</td>
-							<td><input type="password" class="update"></td>
+							<td><input type="password" class="update" id="pw"></td>
 						</tr>
 
 						<tr id="u_phone">
 							<td>전화번호</td>
-							<td><input type="text" class="update" value="<%=u_Phone%>"
-								name="u_phone"></td>
+							<td><input type="text" class="update" value="<%=u_Phone%>" name="u_phone"></td>
 						</tr>
 
 						<tr id="u_email">
