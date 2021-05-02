@@ -38,8 +38,8 @@
 <script type="text/javascript">
 //<![CDATA[
 $(function(){	
-	$("#date1").datepicker({minDate: 0});
-	$("#date2").datepicker({minDate: 0});
+	$("#checkin").datepicker({minDate: 0});
+	$("#checkout").datepicker({minDate: 0});
 	$("#place1").on("change",function(){
 		var s = $(this).val();
 		$("#location").val(s);
