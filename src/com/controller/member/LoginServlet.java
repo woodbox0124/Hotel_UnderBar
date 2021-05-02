@@ -59,13 +59,12 @@ public class LoginServlet extends HttpServlet {
 		    	
 		    	System.out.println("num \t"+num);
 				System.out.println("num1 \t"+num1);
-				if(num==1 || num1==1 ){
+				if(num==1 || num1!=0){
 					session.setAttribute("mesg", "아이디 및 비밀번호를 확인 하시길 바랍니다.");
-					if(num==0 && num1==0) {
+				}else if(num==0 && num1==0) {
 						session.setAttribute("mesg", "회원가입 후 이용 바랍니다.");						
 					}
-		           nextPage="LoginUIServlet";		
-		    }		
+		           nextPage="LoginUIServlet";				
 	     }//end else
 		response.sendRedirect(nextPage); //페이지 두개 중 하나로 이동
 	  }
