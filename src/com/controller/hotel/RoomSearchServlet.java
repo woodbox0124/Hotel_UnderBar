@@ -17,6 +17,7 @@ import com.service.RoomService;
 @WebServlet("/RoomSearchServlet")
 public class RoomSearchServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String hotelname = request.getParameter("hotelname");
 		String checkin = request.getParameter("checkin");
 		String checkout = request.getParameter("checkout");
 		String place = request.getParameter("place");
@@ -24,9 +25,10 @@ public class RoomSearchServlet extends HttpServlet {
 			System.out.println("hotelseq"+seq);
 		    RoomService service = new RoomService(); 
 		   List<RoomDTO> list =service.roomList(seq); 
-		    System.out.println("roomlist"+list);
+		   System.out.println("list :" + hotelname + checkin + checkout + place + seq);
 		    request.setAttribute("roomlist", list); //해당 호텔의 룸리스트
 		    HttpSession session = request.getSession();
+		    session.setAttribute("hotelname", hotelname);
 		    session.setAttribute("checkin", checkin);
 		    session.setAttribute("checkout", checkout);
 		    session.setAttribute("place", place);

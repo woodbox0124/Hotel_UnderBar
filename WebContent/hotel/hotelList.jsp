@@ -355,7 +355,7 @@ img {
 				HotelDTO dto = list.get(i);
 				
 				String seq = dto.getSeq();
-				String name = dto.getName();
+				String hotelname = dto.getName();
 				String place = dto.getPlace();
 				String addr = dto.getAddr();
 				double use_count = dto.getUse_count();
@@ -368,13 +368,13 @@ img {
 					<img src="images/hotel/<%= hotel_img %>.jpg" class="card-img-top"
 						alt="...">
 					<div class="card-body">
-						<h5 class="card-title"><%= name %></h5>
+						<h5 class="card-title"><%= hotelname %></h5>
 						<p class="card-text">
 							<span style="color: red;"><%= rating %></span> <span id="place"><%= place %></span>
 						</p>
 
 						<a
-							href="RoomSearchServlet?seq=<%=seq%>&checkin=<%=checkin%>&checkout=<%=checkout%>&place=<%=place%>"
+							href="RoomSearchServlet?hotelname=<%=hotelname%>&seq=<%=seq%>&checkin=<%=checkin%>&checkout=<%=checkout%>&place=<%=place%>"
 							class="btn btn-primary">OPEN</a>
 					</div>
 				</div>

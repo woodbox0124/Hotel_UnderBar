@@ -11,6 +11,7 @@
 
 
 <%
+String hotelname = request.getParameter("hotelname");
 String hotelseq = request.getParameter("hotelseq");
 String u_id = request.getParameter("u_id");
 String roomseq = request.getParameter("roomseq");
@@ -111,7 +112,7 @@ a {
 	
 		<div class="list-caption">
 		<p class="hotelseq" style="text-align: center;">
-				호텔이름 : <%=hotelseq%></p> <br>
+				호텔이름 : <%=hotelname%></p> <br>
 				
 			<div class="room">
 				객실 이름 : <%=name%><br>

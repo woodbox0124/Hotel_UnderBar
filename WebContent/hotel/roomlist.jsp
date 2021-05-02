@@ -77,6 +77,7 @@ img {
 	<div class="cards">
 	<div id="aa">
 		<% 
+	String hotelname = (String)session.getAttribute("hotelname");
 	String checkin = (String)session.getAttribute("checkin");
 	String checkout = (String)session.getAttribute("checkout");
 	String guest = (String)session.getAttribute("guest");
@@ -114,7 +115,7 @@ for(int i=0; i<list.size(); i++){
 				</p>
 
 				<a href="RoomReservServlet?u_id=<%=u_id %>&checkin=<%=checkin%>
-				&checkout=<%=checkout%>&guest=<%=guest%>&hotelseq=<%=hotelseq%>
+				&checkout=<%=checkout%>&guest=<%=guest%>&hotelseq=<%=hotelseq%>&hotelname=<%=hotelname%>
 				&roomseq=<%=seq%>&price=<%=price%>&location=<%=location%>&name=<%=name%>" id="resv">지금예약</a>
 				<ul>
 					<li><a href="RoomInfoServlet?seq=<%=seq%>"

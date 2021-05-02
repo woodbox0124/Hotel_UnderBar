@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 public class RoomReservServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		String hotelname = request.getParameter("hotelname");
 		String checkin = request.getParameter("checkin");
 		String checkout = request.getParameter("checkout");
 		String guest = request.getParameter("guest");
