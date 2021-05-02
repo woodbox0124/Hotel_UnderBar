@@ -5,7 +5,14 @@
 <%@page import="com.dto.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<!DOCTYPE HTML>
 
+<!--
+	Aerial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
 <head>
 <!-- 글꼴 -->
 <link rel="stylesheet" type="text/css" href="assets/css/font.css">
@@ -22,6 +29,7 @@
 }
 
 form {
+	border: 3px solid;
 	position: relative;
 	top: 67px;
 	width: 99%;
@@ -60,7 +68,9 @@ h1 {
 	href="styles/bootstrap-4.1.2/bootstrap.min.css">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
-
+<noscript>
+	<link rel="stylesheet" href="assets/css/noscript.css" />
+</noscript>
 <!-- main배경 css 끝 -->
 <%
    String mesg = (String)session.getAttribute("mesg");
@@ -84,6 +94,9 @@ session.removeAttribute("mesg");
 
 <body class="is-preload">
 	<div id="wrapper">
+		<div id="bg"></div>
+		<div id="overlay"></div>
+		<div id="main">
 			<!-- Header -->
 			<header id="header">
 				<form action="MemberUpdateServlet">
@@ -91,7 +104,10 @@ session.removeAttribute("mesg");
 						<tbody>
 							<tr>
 								<td colspan="2">
-										<h1><%=mu_name%>님의 예약정보</h1>
+									<center>
+										<h1><%=mu_name%>님의 예약정보
+										</h1>
+									</center>
 								</td>
 							</tr>
 							<tr id="test">
@@ -165,11 +181,13 @@ session.removeAttribute("mesg");
 
 
 				</form>
-				</header>
-				</div>
-
+</header>
+</div>
 				<script>
 			window.onload = function() { document.body.classList.remove('is-preload'); }
 			window.ontouchmove = function() { return false; }
 			window.onorientationchange = function() { document.body.scrollTop = 0; }
 		</script>
+		</div>
+</body>
+</html>

@@ -17,9 +17,10 @@ String roomseq = request.getParameter("roomseq");
 String checkin = request.getParameter("checkin");
 String checkout = request.getParameter("checkout");
 int price = Integer.parseInt(request.getParameter("price"));
-int guest = Integer.parseInt(request.getParameter("guest"));
-
+String guest = request.getParameter("guest");
 String u_phone = request.getParameter("u_phone");
+String location = request.getParameter("location");
+String name = request.getParameter("name");
 
 MemberDTO dto = (MemberDTO) session.getAttribute("login");
 
@@ -95,20 +96,25 @@ a {
 <body>
 	<a href="MainServlet" class="main">Hotel UnderBar</a>
 	<form action="KakaopayServlet">
-	<input type="hidden" name="hotelseq" value="<%=hotelseq%>">
+	
+	<!-- kakao pay 값 전달을 위한 코드 -->
 	<input type="hidden" name="roomseq" value="<%=roomseq%>">
+	<input type="hidden" name="location" value="<%=location%>">
+	<input type="hidden" name="hotelseq" value="<%=hotelseq%>">
 	<input type="hidden" name="guest" value="<%=guest%>">
 	<input type="hidden" name="checkin" value="<%=checkin%>">
 	<input type="hidden" name="checkout" value="<%=checkout%>">
 	<input type="hidden" name="u_id" value="<%=u_id%>">
-	<input type="hidden" name= "phone" value="<%=phone%>">
+	<input type="hidden" name="name" value="<%=name%>">
+	<input type="hidden" name="phone" value="<%=phone%>">
 	<input type="hidden" name="price" value="<%=price%>">
+	
 		<div class="list-caption">
 		<p class="hotelseq" style="text-align: center;">
 				호텔이름 : <%=hotelseq%></p> <br>
 				
 			<div class="room">
-				객실 이름 : <%=roomseq%><br>
+				객실 이름 : <%=name%><br>
 				인원수 : <%=guest%><br> 
 				<p class="date"><%=checkin%>
 					~

@@ -18,19 +18,26 @@ public class PayFail extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
    
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		
-		 HttpSession session = request.getSession(); 
-		 session.getAttribute("list");
-		 
+		String checkin = request.getParameter("checkin");
+		String checkout = request.getParameter("checkout");
+		String guest = request.getParameter("guest");
+		String location = request.getParameter("location");
 		
+		HttpSession session = request.getSession();
+		session.setAttribute("checkin", checkin);
+		session.setAttribute("checkout", checkout);
+		session.setAttribute("guest", guest);
+		session.setAttribute("location", location);
+		System.out.println("fail : " + checkin + "\t" + checkout + "\t" + guest + "\t" + location);
 		
-		  RequestDispatcher dis = request.getRequestDispatcher("RoomSearchServlet");
+		  RequestDispatcher dis = request.getRequestDispatcher("HotelSearchServlet");
 		  dis.forward(request, response);
 		 
-		//response.sendRedirect("RoomSearchServlet");	
 	}
+
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

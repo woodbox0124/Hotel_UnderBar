@@ -20,18 +20,16 @@ public class RoomReservServlet extends HttpServlet {
 		
 		String checkin = request.getParameter("checkin");
 		String checkout = request.getParameter("checkout");
-		int guest = Integer.parseInt(request.getParameter("guest"));
+		String guest = request.getParameter("guest");
 		
 		String hotelseq = request.getParameter("hotelseq");
 		String roomseq = request.getParameter("roomseq");
 		int price = Integer.parseInt(request.getParameter("price"));
 		String u_id = request.getParameter("u_id");
-		System.out.println("roomservlet : " + checkin + "\t" + checkout + "\t" + guest + "\t" + hotelseq + "\t" + roomseq +"\t" + price + "\t" + u_id);
+		String location = request.getParameter("location");
+		String name = request.getParameter("name");
+		System.out.println("roomservlet : " + checkin + "\t" + checkout + "\t" + guest + "\t" + hotelseq + "\t" + roomseq +"\t" + price + "\t" + u_id + "\t" + location + "\t" + name);
 		
-		/*
-		 * ResvService service = new ResvService(); int num = service.resvInsert(dto);
-		 * System.out.println(num);
-		 */
 		
 		RequestDispatcher dis = request.getRequestDispatcher("RoomReserv.jsp");
 		dis.forward(request, response);

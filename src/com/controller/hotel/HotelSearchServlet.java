@@ -28,8 +28,8 @@ public class HotelSearchServlet extends HttpServlet {
 		System.out.println(location);
 		System.out.println(pDTO);
 					
-		  String checkin = request.getParameter("date1"); 
-		  String checkout =request.getParameter("date2"); 
+		  String checkin = request.getParameter("checkin"); 
+		  String checkout =request.getParameter("checkout"); 
 		  String guest = request.getParameter("guest");
 
 		  if(location!="") { 

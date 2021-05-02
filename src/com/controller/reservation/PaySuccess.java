@@ -25,7 +25,7 @@ public class PaySuccess extends HttpServlet{
 		String checkin = request.getParameter("checkin");
 		String checkout = request.getParameter("checkout");
 		int price = Integer.parseInt(request.getParameter("price"));
-		int guest = Integer.parseInt(request.getParameter("guest"));
+		String guest = request.getParameter("guest");
 		
 		ResvDTO dto = new ResvDTO();
 		dto.setHotelseq(hotelseq);

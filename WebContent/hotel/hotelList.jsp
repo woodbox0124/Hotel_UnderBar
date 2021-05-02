@@ -344,6 +344,7 @@ img {
 				String checkin = (String) session.getAttribute("checkin");
 				String checkout = (String) session.getAttribute("checkout");
 				String guest = (String) session.getAttribute("guest");
+				
 				%>
 				<%
 				PageDTO pDTO = (PageDTO)request.getAttribute("pDTO");

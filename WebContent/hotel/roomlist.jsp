@@ -1,3 +1,4 @@
+<%@page import="com.dto.HotelDTO"%>
 <%@page import="com.dto.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -72,14 +73,15 @@ img {
 <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<div id="wrapper">
+	<div id="wrapper">
 	<div class="cards">
 	<div id="aa">
 		<% 
 	String checkin = (String)session.getAttribute("checkin");
 	String checkout = (String)session.getAttribute("checkout");
-	String location = (String)session.getAttribute("location");
 	String guest = (String)session.getAttribute("guest");
+	String location = (String)session.getAttribute("location");
+	System.out.println(checkin+"list checkin");
 	
 	MemberDTO dto2 = (MemberDTO)session.getAttribute("login");
 	String u_id = dto2.getU_id();
@@ -87,6 +89,7 @@ img {
 
 
 List<RoomDTO> list = (List<RoomDTO>)request.getAttribute("roomlist");
+List<HotelDTO> list2 = (List<HotelDTO>)request.getAttribute("hotel");
 for(int i=0; i<list.size(); i++){
 	RoomDTO dto = list.get(i);
 	
@@ -97,18 +100,22 @@ for(int i=0; i<list.size(); i++){
 	int max_guest = dto.getMax_guest();
 	String room_img = dto.getRoom_img();
 	String room_img_real = dto.getRoom_img_real();
-
+	
+	request.setAttribute("list", list);
 %>
-
 		<div class="card">
-			<img src="images/room/<%= room_img %>.jpg" class="card-img-top" alt="...">
+		
+			<img src="images/room/<%= room_img %>.jpg" class="card-img-top"
+				alt="...">
 			<div class="card-body">
 				<h5 class="card-title"><%= name %></h5>
 				<p class="card-text">
 					<span id="price">가격 <%= price %></span>
 				</p>
-				<a href="RoomReservServlet?u_id=<%=u_id %>&checkin=<%=checkin%>&checkout=<%=checkout%>
-                &guest=<%=guest%>&hotelseq=<%=hotelseq%>&roomseq=<%=seq%>&price=<%=price%>&location=<%=location%>" id="resv">바로예약</a>
+
+				<a href="RoomReservServlet?u_id=<%=u_id %>&checkin=<%=checkin%>
+				&checkout=<%=checkout%>&guest=<%=guest%>&hotelseq=<%=hotelseq%>
+				&roomseq=<%=seq%>&price=<%=price%>&location=<%=location%>&name=<%=name%>" id="resv">지금예약</a>
 				<ul>
 					<li><a href="RoomInfoServlet?seq=<%=seq%>"
 						style="color: black">객실 정보 자세히보기</a><br>
@@ -118,9 +125,6 @@ for(int i=0; i<list.size(); i++){
 
 		<%} %>
 		</div>
-		
+</div>		
 </div><!-- end cards  -->
-</div>
-
 <jsp:include page="footer.jsp" flush="true"></jsp:include>
-	

@@ -7,9 +7,15 @@ String roomseq = request.getParameter("roomseq");
 String checkin = request.getParameter("checkin");
 String checkout = request.getParameter("checkout");
 int price = Integer.parseInt(request.getParameter("price"));
-int guest = Integer.parseInt(request.getParameter("guest"));
+String guest = request.getParameter("guest");
 String u_phone = request.getParameter("u_phone");
+String location = request.getParameter("location");
+ 
 
+
+/* int max_guest = Integer.parseInt(request.getParameter("max_guest"));
+String room_img = request.getParameter("room_img");
+String room_img_real = request.getParameter("room_img_real"); */
 %>
 <!DOCTYPE html>
 <html>
@@ -66,7 +72,7 @@ String u_phone = request.getParameter("u_phone");
                 msg = '결제에 실패하였습니다.';
                 msg += '에러내용 : ' + rsp.error_msg;
                 //실패시 이동할 페이지
-               location.href="<%=request.getContextPath()%>/payFail";
+                location.href="<%=request.getContextPath()%>/payFail?checkin=<%=checkin%>&checkout=<%=checkout%>&guest=<%=guest%>&location=<%=location%>";
                 alert(msg);
             }
         });

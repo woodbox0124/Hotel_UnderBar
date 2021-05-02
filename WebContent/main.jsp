@@ -96,11 +96,11 @@ option {
 								<div class="booking_input_container d-flex flex-lg-row flex-column align-items-start justify-content-start">
 									<div>
 										<input type="text" class="datepicker booking_input booking_input_a booking_in"
-										placeholder="체크인" required="required" id="date1" name="date1" autocomplete="off">
+										placeholder="체크인" required="required" id="checkin" name="checkin" autocomplete="off">
 									</div>
 									<div>
 										<input type="text" class="datepicker booking_input booking_input_a booking_out"
-										placeholder="체크아웃" required="required" id="date2" name="date2" autocomplete="off">
+										placeholder="체크아웃" required="required" id="checkout" name="checkout" autocomplete="off">
 									</div>
 									<div>
                                     	<input type="number" class="booking_input booking_input_b" placeholder="인원 수" required="required" name="guest">
