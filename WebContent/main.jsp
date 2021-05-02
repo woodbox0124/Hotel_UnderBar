@@ -19,9 +19,6 @@
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="assets/css/main.css" />
 
-<noscript>
-	<link rel="stylesheet" href="assets/css/noscript.css" />
-</noscript>
 <!-- main배경 css 끝 -->
 <!-- 글꼴 CSS 시작 -->
 <link rel="stylesheet" type="text/css" href="assets/css/font.css">
@@ -83,7 +80,7 @@ option {
 </style>
 <!-- 자체 CSS 끝-->
 </head>
-<body class="is-preload">
+<body>
 	<jsp:include page="common/menu.jsp"></jsp:include>
 	<div id="wrapper">
 		<div id="main">
@@ -122,19 +119,5 @@ option {
 				</header>
 			</div>
 		</div>
-		
-
-	<script>
-		window.onload = function() {
-			document.body.classList.remove('is-preload');
-		}
-		window.ontouchmove = function() {
-			return false;
-		}
-		window.onorientationchange = function() {
-			document.body.scrollTop = 0;
-		}
-	</script>
-
 </body>
 </html>
