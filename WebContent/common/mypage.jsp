@@ -28,16 +28,34 @@ String u_email = dto.getU_email();
 <!-- 글꼴 -->
 <!-- table css 시작 -->
 <style type="text/css">
-*{
+* {
 	font-family: 'twayair', 'Roboto', 'sans-serif';
 }
 
-#container {
-	position: relative;
-	top: 125px;
-	width: 61%;
-	top: 129px;
-	left: 284px;
+#main {
+	width: 100%;
+	height: 750px;
+	border: 3px solid;
+}
+
+#header {
+	width: 1200px;
+	height: 260px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+#form{
+	border: 2px solid;
+}
+
+th{
+	float: left;
+	
+}
+
+a {
+	text-decoration: none
 }
 
 input {
@@ -47,49 +65,9 @@ input {
 	border-bottom: 2px solid black;
 }
 
-#button {
-	position: relative;
-	top: 225px;
-	width: 250px;
-	height: 118px;
-	left: 44%;
-	text-align: center;
+#pw {
+	font-family: 'Source Sans Pro', sans-serif;
 }
-
-#tbody {
-	position: relative;
-}
-
-#submit {
-	margin-bottom: 10px;
-}
-
-h1 {
-	width: 46%;
-	height: 162px;
-	text-align: center;
-	position: relative;
-	left: 42px;
-}
-
-#header {
-	width: 96%;
-	height: 780px;
-	position: relative;
-	left: 5px;
-}
-
-a {
-	text-decoration: none
-}
-
- #pw {
-	font-family : 'Source Sans Pro', sans-serif;
-} 
-.update{
-		width: 30%;
-	}
-
 </style>
 <!-- jQuery 시작 -->
 <script
@@ -124,83 +102,71 @@ if (mesg != null) {
 	session.removeAttribute("mesg");
 }
 %>
+
+<script>
+	window.onload = function() {
+		document.body.classList.remove('is-preload');
+	}
+	window.ontouchmove = function() {
+		return false;
+	}
+	window.onorientationchange = function() {
+		document.body.scrollTop = 0;
+	}
+</script>
 </head>
-<body class="is-preload">
+<body>
 	<jsp:include page="menu_mypage.jsp"></jsp:include>
-	<div id="overlay"></div>
 	<div id="main">
-		<nav class="hotelcol-1"></nav>
 		<!-- Header -->
 		<div id="header">
-			<form action="MemberUpdateServlet">
+			<form action="MemberUpdateServlet" id=form>
 				<table class="container" id="container">
-					<tbody id="tbody">
+					
 						<tr>
 							<td colspan="2">
-
-								<h1><%=u_name%>님의 정보
-								</h1>
-
+								<h1><%=u_name%>님의 정보</h1>
 							</td>
 						</tr>
 
-						<tr id="u_id">
-							<td>아이디</td>
-							<td><%=u_id%><input type="hidden" value="<%=u_id%>"
-								name="u_id"></td>
-						</tr>
-						<tr id="u_name">
-							<td>이름</td>
-							<td><%=u_name%><input type="hidden" value="<%=u_name%>"
-								name="u_name"></td>
+						<tr>
+							<th>아이디</th>
+							<td><%=u_id%><input type="hidden" value="<%=u_id%>" name="u_id"></td>
 						</tr>
 						<tr>
-							<td>비밀번호</td>
-							<td><input type="password" class="update"id="pw" value="<%=u_pw%>"
-								name="u_pw"></td>
+							<th>이름</th>
+							<td><%=u_name%><input type="hidden" value="<%=u_name%>" name="u_name"></td>
 						</tr>
 						<tr>
-							<td>비밀번호 확인</td>
+							<th>비밀번호</th>
+							<td><input type="password" class="update" id="pw" value="<%=u_pw%>" name="u_pw"></td>
+						</tr>
+						<tr>
+							<th>비밀번호 확인</th>
 							<td><input type="password" class="update" id="pw"></td>
 						</tr>
 
-						<tr id="u_phone">
-							<td>전화번호</td>
+						<tr>
+							<th>전화번호</th>
 							<td><input type="text" class="update" value="<%=u_Phone%>" name="u_phone"></td>
 						</tr>
 
-						<tr id="u_email">
+						<tr>
 
-							<td>e-mail</td>
-							<td><input type="text" class="update" value="<%=u_email%>"
-								name="u_email"></td>
+							<th>e-mail</th>
+							<td><input type="text" class="update" value="<%=u_email%>" name="u_email"></td>
 
 						</tr>
-
-					</tbody>
 				</table>
+				<div id="button1">
+					<button id="submit" type="submit" class="btn btn-outline-primary">회원정보	수정하기</button>
+				</div>
 			</form>
-
-			<div id="button">
-				<button id="submit" type="submit" class="btn btn-outline-primary">회원정보
-					수정하기</button>
-				<br>
-
-				<button id="delete" data-xxx="<%=u_id%>"
-					class="btn btn-outline-primary">회원 탈퇴하기</button>
+			<div id="button2">
+				<button id="delete" data-xxx="<%=u_id%>" class="btn btn-outline-primary">회원 탈퇴하기</button>
 			</div>
 		</div>
-		<script>
-			window.onload = function() {
-				document.body.classList.remove('is-preload');
-			}
-			window.ontouchmove = function() {
-				return false;
-			}
-			window.onorientationchange = function() {
-				document.body.scrollTop = 0;
-			}
-		</script>
+
 	</div>
 </body>
 </html>
