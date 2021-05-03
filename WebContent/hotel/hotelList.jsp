@@ -15,26 +15,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
-	$(document).ready(function(){
-		$(".plus").click(function() {
-			var num = $("#ppl").text();
-			console.log(num);
-			num++;
-			$("#ppl").text(num);
-			$("#ppl_value").val(num);
-		})
-		
-		$(".minus").click(function() {
-			var num = $("#ppl").text();
-			console.log(num);
-			num--;
-			if (num == 0) {
-				num = 1;
-			}
-			$("#ppl").text(num);
-			$("#ppl_value").val(num);
-		});
-		
+
+
+
+	$(document).ready(function(){			
 		$(window).scroll(function(event) {
 			if(jQuery(window).scrollTop() > jQuery(".filter").offset().top)
 				{
@@ -45,7 +29,9 @@
 					jQuery("#filter").css("position", "static");
 				}
 		})
+		
 	})
+	
 </script>
 <meta charset="UTF-8">
 
@@ -232,22 +218,21 @@ img {
 </style>
 
 </head>
+<%String location = (String)request.getAttribute("location"); %>
 	<div class="section">
 		<div class="wrapper">
 			<div class="filter">
 				<div id="filter">
 					<form action="SearchServlet" method="get">
 						<div id="area">
-							<span>지역</span> <select class="place booking_input"
+							<span>지역</span> <select class="place booking_input" id="place booking_input"
 								name="location">
-								<option value="">모든지역</option>
-								<option value="서울">서울</option>
-								<option value="부산">부산</option>
-								<option value="제주">제주</option>
+								<option value="" <%if(location.equals("")){%>selected<%}%>>모든지역</option>
+								<option value="서울" <%if(location.equals("서울")){%>selected<%}%>>서울</option>
+								<option value="부산" <%if(location.equals("부산")){%>selected<%}%>>부산</option>
+								<option value="제주" <%if(location.equals("제주")){%>selected<%}%>>제주</option>
 							</select>
 						</div>
-
-
 						<div id="map">
 
 							<div id="container" class="view_map">
@@ -348,7 +333,7 @@ img {
 				%>
 				<%
 				PageDTO pDTO = (PageDTO)request.getAttribute("pDTO");
-				String location = (String)request.getAttribute("location");
+				
 				List<HotelDTO> list = pDTO.getList();
 				
 				for (int i = 0; i < list.size(); i++) {
