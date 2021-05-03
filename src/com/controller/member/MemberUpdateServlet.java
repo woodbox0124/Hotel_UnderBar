@@ -40,7 +40,7 @@ public class MemberUpdateServlet extends HttpServlet {
 			int n = service.memberUpdate(dto1);
 			session.setAttribute("login", dto1);
 			session.setAttribute("mesg", "회원 정보 수정 완료");
-			nextPage = "mypage.jsp";
+			nextPage = "main.jsp";
 		} else {
 			nextPage = "LoginUIServlet";
 			session.setAttribute("mesg", "로그인 후 이용하시길 바랍니다.");
