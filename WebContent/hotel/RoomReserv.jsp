@@ -9,7 +9,15 @@
 <meta charset="UTF-8">
 <title>예약</title>
 
+<link rel="stylesheet" type="text/css" href="assets/css/default.css">
+<link rel="stylesheet" type="text/css" href="assets/css/font.css">
+<style type="text/css">
+img {
+	width: 100%;
+	height: 100%;
+}
 
+</style>
 <%
 String hotelname = request.getParameter("hotelname");
 String hotelseq = request.getParameter("hotelseq");
@@ -29,45 +37,21 @@ String phone = dto.getU_phone();
 
 System.out.println("roomjsp : " + checkin + "\t" + checkout + "\t" + guest + "\t" + hotelseq + "\t" + roomseq +"\t" + price + "\t" + u_id + "\t" + phone) ;
 %>
-
-<%
-   String mesg = (String)session.getAttribute("mesg");
-   if(mesg!=null){
-%>
-   <script type="text/javascript">
-     alert("<%=mesg%>");
-     history.go(-2);
-   </script>
-<%
-session.removeAttribute("mesg");
-
-   }
-%>
 <style type="text/css">
-@font-face {
-    font-family: 'twayair';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_tway@1.0/twayair.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-* {
- 	color: black;
-	font-family: 'twayair';
-	font-size: 20pt;
-
+*{
+font-family: 'twayair';
 }
 body{
  background-image: url("assets/css/images/night.jpg");
  background-size: auto;
 }
-a {
-	font-size: 40px;
-}
+
 .room {
 	margin-left: 8%;
 	font-size : 30px;
 }
 .number {
+	width: 60%;
 	font-size: 30px;
 	width: 200px;
 }
@@ -90,6 +74,9 @@ a {
 	font-size: 50px;
 }
 
+form{
+	margin-bottom: 120px;
+}
 
 .list-caption {
 	top : 100px;
@@ -98,6 +85,7 @@ a {
 	margin-left: 300px;
 	margin-right: 300px;
 	position: relative;
+	color: black;
 }
 
 .main {
@@ -109,7 +97,6 @@ a {
 
 </head>
 <body>
-	<a href="MainServlet" class="main">Hotel UnderBar</a>
 	<form action="KakaopayServlet">
 	
 	<!-- kakao pay 값 전달을 위한 코드 -->
@@ -139,11 +126,9 @@ a {
 				예약자 전화번호 : <input class="number" type="text"
 					value="<%=phone%>"> <br><br>
 					요금 : <%=price%><br>
-					
 			</div>
 			<p><button class="button">결제하기</button></p>
 		</div>
 	</form>
-
 </body>
 </html>
