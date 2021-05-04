@@ -29,6 +29,20 @@ String phone = dto.getU_phone();
 
 System.out.println("roomjsp : " + checkin + "\t" + checkout + "\t" + guest + "\t" + hotelseq + "\t" + roomseq +"\t" + price + "\t" + u_id + "\t" + phone) ;
 %>
+
+<%
+   String mesg = (String)session.getAttribute("mesg");
+   if(mesg!=null){
+%>
+   <script type="text/javascript">
+     alert("<%=mesg%>");
+     history.go(-2);
+   </script>
+<%
+session.removeAttribute("mesg");
+
+   }
+%>
 <style type="text/css">
 @font-face {
     font-family: 'twayair';

@@ -1,5 +1,6 @@
 package com.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -23,6 +24,10 @@ public class RoomDAO {
 	public List<RoomDTO> roomList2(SqlSession session, String seq) {
 		List<RoomDTO> list = session.selectList("HotelMapper.roomList2",seq);
 		return list;
+	}
+	public int date(SqlSession session, HashMap<String, String> map) {
+		int n = session.selectOne("HotelMapper.date", map);
+		return n;
 	}
 
 }

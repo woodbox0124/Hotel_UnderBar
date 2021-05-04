@@ -36,4 +36,9 @@ select * from roominfo where r_seq=#{seq} order by r_seq
 <select id="roomList2" resultType="RoomDTO" parameterType="string">
 	select * from room where seq=#{seq}
 </select>
+
+<select id="date" resultType="int" parameterType="hashmap">
+	select COUNT(*) from resv 
+	where roomseq = #{roomseq} and checkin = TO_DATE(#{checkin})
+</select>
 </mapper>
