@@ -13,20 +13,16 @@ String u_email = dto.getU_email();
 
 <!DOCTYPE HTML>
 
-<!--
-	Aerial by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
+
 <html>
 <head>
 <!-- 글꼴 -->
 <link rel="stylesheet" type="text/css" href="assets/css/font.css">
 <!-- 글꼴 -->
 
-<!-- table css 시작 -->
+<!-- mypage css 시작 -->
 <link rel="stylesheet" type="text/css" href="assets/css/mypage.css">
-<!-- table css 끝 -->
+<!-- mypage css 끝 -->
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link
 	href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap"
@@ -50,8 +46,8 @@ String u_email = dto.getU_email();
 <title>MyPage</title>
 <meta charset="utf-8">
 <!-- main배경 css -->
-<link rel="stylesheet" type="text/css"
-	href="styles/bootstrap-4.1.2/bootstrap.min.css">
+<!-- <link rel="stylesheet" type="text/css"
+	href="styles/bootstrap-4.1.2/bootstrap.min.css"> -->
 
 <!-- main배경 css 끝 -->
 <%
@@ -59,8 +55,7 @@ String u_email = dto.getU_email();
 if (mesg != null) {
 %>
 <script type="text/javascript">
-     alert('<%=mesg%>
-	');
+     alert('<%=mesg%>');
 </script>
 <%
 	session.removeAttribute("mesg");
