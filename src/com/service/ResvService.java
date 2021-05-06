@@ -5,9 +5,12 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 
 import com.config.MySqlSessionFactory;
+import com.dao.HotelDAO;
 import com.dao.ResvDAO;
+import com.dto.PageDTO;
 import com.dto.ResvDTO;
 import com.dto.ResvMyDTO;
+import com.dto.ResvPageDTO;
 
 public class ResvService {
 	
@@ -58,6 +61,20 @@ public class ResvService {
 			session.close();
 		}
 		return num;
+	}
+
+	public ResvPageDTO resvMyList(int curPage, String u_id) {
+		SqlSession session = MySqlSessionFactory.getSession();
+		ResvPageDTO RpDTO = null;
+		try {
+			ResvDAO dao = new ResvDAO();
+			RpDTO = dao.resvMyList(session,curPage, u_id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			session.close();
+		}
+		return RpDTO;
 	}
 
 }

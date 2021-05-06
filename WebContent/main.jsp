@@ -41,7 +41,19 @@ $(function(){
 		var s = $(this).val();
 		$("#location").val(s);
 	})
+	$('#checkin').datepicker();
+    $('#checkin').datepicker("option", "maxDate", $("#checkout").val());
+    $('#checkin').datepicker("option", "onClose", function ( selectedDate ) {
+        $("#checkout").datepicker( "option", "minDate", selectedDate );
+    });
+
+    $('#checkout').datepicker();
+    $('#checkout').datepicker("option", "minDate", $("#checkin").val());
+    $('#checkout').datepicker("option", "onClose", function ( selectedDate ) {
+        $("#checkin").datepicker( "option", "maxDate", selectedDate );
+    });
 });
+
 //]]>
 </script>
 <!-- 달력 쿼리 끝 -->

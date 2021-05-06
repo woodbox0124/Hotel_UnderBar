@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.dto.HotelDTO;
 import com.dto.PageDTO;
+import com.dto.ResvPageDTO;
 
 public class HotelDAO {
 
@@ -75,4 +76,8 @@ public class HotelDAO {
 		System.out.println("totalCount\t"+num);
 		return num; 
 	}
+
+	
+
+	
 }

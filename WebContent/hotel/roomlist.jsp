@@ -128,4 +128,3 @@ for(int i=0; i<list.size(); i++){
 		</div>
 </div>		
 </div><!-- end cards  -->
-<jsp:include page="footer.jsp" flush="true"></jsp:include>

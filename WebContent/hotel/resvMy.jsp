@@ -1,3 +1,6 @@
+<%@page import="com.dto.ResvPageDTO"%>
+<%@page import="com.dto.HotelDTO"%>
+<%@page import="com.dto.PageDTO"%>
 <%@page import="java.text.DateFormat"%>
 <%@page import="com.dto.ResvMyDTO"%>
 <%@page import="java.util.List"%>
@@ -83,6 +86,7 @@ String mu_name = mdto.getU_name();
 				<tr>
 					<td colspan="11" id="resv_name"><%=mu_name%>님의 예약 정보</td>
 				</tr>
+
 				<tr>
 					<th id="seq">예약번호</th>
 					<th id="rating">평점</th>
@@ -97,11 +101,18 @@ String mu_name = mdto.getU_name();
 					<th id="cancel">취소</th>
 
 				</tr>
-				<%
-					List<ResvMyDTO> list = (List<ResvMyDTO>) request.getAttribute("resvMy");
-				for (int i = 0; i < list.size(); i++) {
-					ResvMyDTO dto = list.get(i);
 
+				<%
+					/* List<ResvMyDTO> list = (List<ResvMyDTO>) request.getAttribute("resvMy");
+				for (int i = 0; i < list.size(); i++) {
+					ResvMyDTO dto = list.get(i); */
+					ResvPageDTO RpDTO = (ResvPageDTO)request.getAttribute("RpDTO");
+					
+					List<ResvMyDTO> list = RpDTO.getList();
+					
+					for (int i = 0; i < list.size(); i++){
+					
+					ResvMyDTO dto = list.get(i);
 					int seq = dto.getSeq();
 					double rating = dto.getRating();
 					String hotelname = dto.getHotelname();
@@ -148,7 +159,34 @@ String mu_name = mdto.getU_name();
 			</table>
 
 		</form>
-
+		
+		</div>
+		
+<div class="page">
+		<%
+			String u_id = (String)session.getAttribute("u_id");
+			int curPage = RpDTO.getCurPage();//현재페이지
+			int perPage = RpDTO.getPerPage();//페이지당 게시물수
+			int totalCount = RpDTO.getTotalCount();//전체 레코드수 
+			int totalPage = totalCount/perPage;// 필요한 페이지
+			System.out.println(curPage);
+			System.out.println(perPage);
+			System.out.println(totalCount);
+			System.out.println(totalPage);
+	
+			if(totalCount%perPage!=0) totalPage++;
+			for(int i = 1; i <= totalPage; i++){
+				if(i==curPage){
+					System.out.print("if i"+i);
+					out.print(i+"&nbsp;");
+				}else{
+					System.out.print("else i"+i);
+					out.print("<a href='ResvMyServlet?curPage="+i+"&u_id="+u_id+"'>"+i+"</a>&nbsp;");
+				}//end for		
+			}
+		%>
+		
+		
 	</div>
 
 </body>
