@@ -46,6 +46,7 @@ img {
 }
 #wrapper{
 	width:100%;
+	height: 800px;
 	
 }
 #resv{
