@@ -73,7 +73,7 @@ if (mesg != null) {
 </script>
 </head>
 <body>
-	<jsp:include page="menu_mypage.jsp"></jsp:include>
+	<jsp:include page="menu_mypage.jsp"></jsp:include><br>
 	<div id="main">
 		<!-- Header -->
 		<div id="header">
