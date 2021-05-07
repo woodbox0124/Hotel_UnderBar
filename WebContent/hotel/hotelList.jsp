@@ -218,7 +218,10 @@ img {
 </style>
 
 </head>
-<%String location = (String)request.getAttribute("location"); %>
+<%String location = (String)session.getAttribute("location"); 
+String checkin = (String) session.getAttribute("checkin");
+String checkout = (String) session.getAttribute("checkout");
+String guest = (String) session.getAttribute("guest");%>
 	<div class="section">
 		<div class="wrapper">
 			<div class="filter">
@@ -325,12 +328,8 @@ img {
 			</div>
 
 			<div class="cards">
-				<%
 				String checkin = (String) session.getAttribute("checkin");
-				String checkout = (String) session.getAttribute("checkout");
-				String guest = (String) session.getAttribute("guest");
-				
-				%>
+			
 				<%
 				PageDTO pDTO = (PageDTO)request.getAttribute("pDTO");
 				
@@ -384,7 +383,7 @@ img {
 					out.print(i+"&nbsp;");
 				}else{
 					System.out.print("else i"+i);
-					out.print("<a href='HotelSearchServlet?curPage="+i+"&location="+location+"'>"+i+"</a>&nbsp;");
+					out.print("<a href='HotelSearchServlet?checkin="+checkin+"&checkout="+checkout+"&guest="+guest+"&curPage="+i+"&location="+location+"'>"+i+"</a>&nbsp;");
 				}//end for		
 			}
 		%>
@@ -393,4 +392,3 @@ img {
 			</div>
 	</div><!-- end wrapper -->
 </div><!-- end section -->
-		
