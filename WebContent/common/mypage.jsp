@@ -24,9 +24,7 @@ String u_email = dto.getU_email();
 <link rel="stylesheet" type="text/css" href="assets/css/mypage.css">
 <!-- mypage css 끝 -->
 <link rel="preconnect" href="https://fonts.gstatic.com">
-<link
-	href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap"
-	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
 
 
 <!-- jQuery 시작 -->

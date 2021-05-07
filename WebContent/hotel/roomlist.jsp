@@ -45,9 +45,7 @@ img {
 	height: 100%;
 }
 #wrapper{
-	width:100%;
-	height: 800px;
-	
+	width:100%;	
 }
 #resv{
     font-size: 20px;

@@ -15,13 +15,12 @@
 <!-- 글꼴 -->
 <link rel="stylesheet" type="text/css" href="assets/css/font.css">
 <link rel="preconnect" href="https://fonts.gstatic.com">
-<link
-	href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap"
-	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
 <!-- 글꼴 -->
 
 <!-- resvMy css 시작 -->
 <link rel="stylesheet" type="text/css" href="assets/css/resvMy.css">
+<link rel="stylesheet" type="text/css" href="assets/css/default.css">
 <!-- resvMy css 끝 -->
 
 <!-- 부트스트랩 css 시작 -->

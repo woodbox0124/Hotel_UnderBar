@@ -34,26 +34,29 @@
 <script src="./jquery-ui-1.12.1/datepicker-ko.js"></script>
 <script type="text/javascript">
 //<![CDATA[
-$(function(){	
-	$("#checkin").datepicker({minDate: 0});
-	$("#checkout").datepicker({minDate: 0});
-	$("#place1").on("change",function(){
-		var s = $(this).val();
-		$("#location").val(s);
-	})
-	$('#checkin').datepicker();
-    $('#checkin').datepicker("option", "maxDate", $("#checkout").val());
-    $('#checkin').datepicker("option", "onClose", function ( selectedDate ) {
+$(function(){
+	 $("#place1").on("change",function(){
+	        var s = $(this).val();
+	        $("#location").val(s);
+	    });
+	    
+	 
+    $("#checkin").datepicker({minDate: 0});
+    $("#checkout").datepicker({minDate: 0});
+    
+    
+    
+    $("#checkin").datepicker("option", "onClose", function (selectedDate) {
         $("#checkout").datepicker( "option", "minDate", selectedDate );
+        $("#checkin").datepicker("option", "maxDate", $("#checkout").val());
+        $("#checkout").datepicker("option", "minDate", $("#checkin").val());
     });
-
-    $('#checkout').datepicker();
-    $('#checkout').datepicker("option", "minDate", $("#checkin").val());
-    $('#checkout').datepicker("option", "onClose", function ( selectedDate ) {
+    
+    $("#checkout").datepicker("option", "onClose", function (selectedDate ) {	
+    	$("#checkout").datepicker("option", "minDate", $("#checkin").val());
         $("#checkin").datepicker( "option", "maxDate", selectedDate );
     });
 });
-
 //]]>
 </script>
 <!-- 달력 쿼리 끝 -->
