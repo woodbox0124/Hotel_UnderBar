@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.board.BoardMapper">
+
+	<update id="updateByNum" parameterType="BoardDTO">
+	  update board
+	  set title= #{title},
+	  		author=#{author},
+	  		content=#{content}
+	  where num = #{num}
+	</update>
+	
+	<update id="readCnt" parameterType="int">
+	  update board
+	  set readCnt=(readCnt+1)
+	  where num = #{num}
+	</update>
+	<delete id="deleteByNum" parameterType="int">
+	 delete from board where num= #{num}
+	</delete>
+	<select id="selectByNum" resultType="BoardDTO"
+	parameterType="int">
+	 select num, title, author, content, to_char(writeday, 'yyyy/MM/dd') writeday, readCnt,origin,groupnum,grouplayer
+	 from board where num= #{num}
+	</select>
+	
+	<select id="listAll" resultType="BoardDTO" 
+	parameterType="hashmap">
+		select num, title, author, content,
+		to_char(writeday, 'yyyy/MM/dd') writeday, readCnt,origin,groupnum,grouplayer
+		from board
+		<if test="searchName == 'title' ">
+		where title LIKE '%'||#{searchValue}||'%' 
+		</if>
+		<if test="searchName=='author'">
+		where author LIKE '%'||#{searchValue}||'%'
+		</if>
+		order by origin desc,grouplayer,groupnum asc
+	</select>
+	
+	
+<select id="totalCount" resultType="int" parameterType="hashmap">
+      select count(*)
+      from board
+         
+		  <if test="searchName == 'title'">
+		      where title LIKE '%'||#{searchValue}||'%' 
+		  </if>
+		  <if test="searchName == 'author'">
+		    where author LIKE '%'||#{searchValue}||'%'
+		  </if>
+       
+       order by origin desc,grouplayer,groupnum asc
+    </select>
+	
+    
+    <insert id="write"  parameterType="BoardDTO">
+    insert into board(num, title, author, content,origin)
+    values (board_seq.nextval, #{title}, #{author}, #{content},board_seq.nextval)    
+    </insert>
+    
+   <insert id="answerinsert" parameterType="BoardDTO">
+    insert into board (num,title,author,content,origin,groupnum, grouplayer)
+	values(board_seq.nextval, #{title},#{author},#{content},#{origin},#{groupnum}, #{grouplayer})
+    </insert>
+    
+    <update id="updatelayer" parameterType="hashmap">
+     <![CDATA[ update board set groupnum = groupnum + 1 where origin = #{origin} and groupnum > #{groupnum} ]]>
+    </update>
+    
+   
+    
+    
+    
+</mapper>
+
+
