@@ -42,7 +42,6 @@ System.out.println("roomjsp : " + checkin + "\t" + checkout + "\t" + guest + "\t
 font-family: 'twayair';
 }
 body{
- background-image: url("assets/css/images/night.jpg");
  background-size: auto;
 }
 
@@ -58,16 +57,16 @@ body{
 .date {
 	font-size: 20px;
 }
-.button {
-	left: 35%;
+.btn {
+	
 	text-align :center;
-	color: #fff;
 	position: relative;
 	font-size: 50px;
 	font-weight: 500;
-	background: #ff3d1c;
 	border-radius: 10px;
-	color: #fff;
+	margin-left: 40%;
+	margin-bottom: 10px;
+	font-family: 'twayair';
 }
 
 .hotelseq {
@@ -81,7 +80,6 @@ form{
 .list-caption {
 	top : 100px;
 	background-color: white;
-	border: 3px solid black;
 	margin-left: 300px;
 	margin-right: 300px;
 	position: relative;
@@ -127,7 +125,8 @@ form{
 					value="<%=phone%>"> <br><br>
 					요금 : <%=price%><br>
 			</div>
-			<p><button class="button">결제하기</button></p>
+			<input class="btn btn-primary input_btn" type="button"
+							value="결제하기"/>
 		</div>
 	</form>
 </body>
