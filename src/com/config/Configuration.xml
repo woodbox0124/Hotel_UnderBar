@@ -13,6 +13,8 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
     <typeAlias type="com.dto.ResvDTO" alias="ResvDTO"/>
     <typeAlias type="com.dto.ResvMyDTO" alias="ResvMyDTO"/>
     <typeAlias type="com.dto.RoomInfoDTO" alias="RoomInfoDTO"/>
+    <typeAlias type="com.dto.BoardDTO" alias="BoardDTO"/>
+    <typeAlias type="com.dto.BoardPageDTO" alias="BoardPageDTO"/>
    </typeAliases>
    
 	<environments default="development">
@@ -30,6 +32,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="com/config/HotelMapper.xml" />
 		<mapper resource="com/config/MemberMapper.xml" />
 		<mapper resource="com/config/ResvMapper.xml" />
+		<mapper resource="com/config/BoardMapper.xml" />
 	</mappers>
 </configuration>
 
