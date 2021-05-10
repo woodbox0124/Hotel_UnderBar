@@ -328,7 +328,6 @@ String guest = (String) session.getAttribute("guest");%>
 			</div>
 
 			<div class="cards">
-				String checkin = (String) session.getAttribute("checkin");
 			
 				<%
 				PageDTO pDTO = (PageDTO)request.getAttribute("pDTO");
