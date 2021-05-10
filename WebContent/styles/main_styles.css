@@ -75,7 +75,6 @@ p a {
 	display: inline;
 	position: relative;
 	color: inherit;
-	border-bottom: solid 1px #ffa07f;
 	-webkit-transition: all 200ms ease;
 	-moz-transition: all 200ms ease;
 	-ms-transition: all 200ms ease;
@@ -97,8 +96,6 @@ a {
 
 a, a:hover, a:visited, a:active, a:link {
 	text-decoration: none;
-	font-size: 17px;
-    color: blue;
 }
 
 p a:active {
@@ -106,10 +103,6 @@ p a:active {
 	color: #FF6347;
 }
 
-p a:hover {
-	color: black;
-	background: #ffa07f;
-}
 
 p a:hover::after {
 	opacity: 0.2;
@@ -120,9 +113,6 @@ p a:hover::after {
 	color: #ffffff;
 }
 
-p::selection {
-	
-}
 
 h1 {
 	font-size: 48px;
@@ -771,9 +761,6 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 	margin-top: 16px;
 }
 
-.icon_box_title h2 {
-	
-}
 
 .icon_box_text {
 	margin-top: 21px;
