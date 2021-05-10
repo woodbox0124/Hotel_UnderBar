@@ -33,9 +33,12 @@ public class SearchServlet extends HttpServlet {
 		System.out.println(pDTO);
 	    List<HotelDTO> list =null;
 	    
-	    String checkin = request.getParameter("date1"); 
-		  String checkout =request.getParameter("date2"); 
-		  String guest = request.getParameter("guest");
+	     String checkin = request.getParameter("date1"); 
+		 String checkout =request.getParameter("date2"); 
+		 String guest = request.getParameter("guest");
+		 System.out.println(checkin);
+		 System.out.println(checkout);
+		 System.out.println(guest);
 
 		  if(location!="") { 
 		  pDTO = service.hotelList1(Integer.parseInt(curPage), location); 
@@ -48,12 +51,7 @@ public class SearchServlet extends HttpServlet {
 		  System.out.println("location"+location);
 		  
 		  HttpSession session = request.getSession(); 
-		  session.setAttribute("checkin",checkin); 
-		  session.setAttribute("checkout", checkout);
 		  session.setAttribute("location", location); 
-		  session.setAttribute("guest",guest);
-        
-		
 		
 		request.setAttribute("hotel", list);
 

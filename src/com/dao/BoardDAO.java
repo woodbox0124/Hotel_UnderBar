@@ -12,10 +12,7 @@ import com.dto.BoardPageDTO;
 import com.dto.HotelDTO;
 import com.dto.PageDTO;
 
-public class BoardDAO {
-
-	
-
+public class BoardDAO {	
 	/*
 	 * public List<BoardDTO> listAll(SqlSession session, HashMap<String, String>
 	 * map) { List<BoardDTO> list =
@@ -73,18 +70,20 @@ public void answerinsert(SqlSession session, BoardDTO dto) {
 		
 		int result= session.insert("com.board.BoardMapper.answerinsert", dto);
 		System.out.println("insert 개수 ====="+ result);
-		
-	}
-public int totalCount(SqlSession session,HashMap<String, String> map) {
-		
-		
-		int n=session.selectOne("com.board.BoardMapper.totalCount",map);
-		return n;
-		
 				
+	}
+    public void layerupdate(SqlSession session, int origin, int groupnum){
+	 Map<String, Integer> map = new HashMap<String, Integer>();
+	 map.put("origin", origin);
+	 map.put("groupnum", groupnum);
+	 session.update("com.board.BoardMapper.updatelayer", map);	
+    }
+
+    public int totalCount(SqlSession session,HashMap<String, String> map) {	
+		int n=session.selectOne("com.board.BoardMapper.totalCount",map);
+		return n;					
 	}	
-
-
+    
 	public BoardPageDTO listAll(SqlSession session, HashMap<String, String> map, int curPage) {
 		BoardPageDTO pDTO = new BoardPageDTO();
 		int perPage = pDTO.getPerPage();
@@ -96,30 +95,11 @@ public int totalCount(SqlSession session,HashMap<String, String> map) {
 		pDTO.setTotalCount(totalCount(session,map));//검색어도 넘겨서 검색에 관련 전체 레코드 개수 구하기
 	
 		return pDTO;
-	}
-	
+	}	
 	public int getTotalCount(SqlSession session)
 	{
 	  int n=session.selectOne("com.board.BoardMapper.boardTotalCount");
 	  return n;
-	}
+	}	
 	
-	public int getMaxNum(SqlSession session)
-	{
-	  int max=session.selectOne("com.board.BoardMapper.boardMaxNum");
-	  return max;				
-	}
-	
-	public void layerupdate(SqlSession session, int origin, int groupnum)
-	{
-		Map<String, Integer> map = new HashMap<String, Integer>();
-		map.put("origin", origin);
-		map.put("groupnum", groupnum);
-		session.update("com.board.BoardMapper.updatelayer", map);
-		
-	}
-	
-
-	
-
 }

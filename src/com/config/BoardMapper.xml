@@ -20,6 +20,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<delete id="deleteByNum" parameterType="int">
 	 delete from board where num= #{num}
 	</delete>
+	
 	<select id="selectByNum" resultType="BoardDTO"
 	parameterType="int">
 	 select num, title, author, content, to_char(writeday, 'yyyy/MM/dd') writeday, readCnt,origin,groupnum,grouplayer
