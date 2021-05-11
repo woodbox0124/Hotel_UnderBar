@@ -89,28 +89,7 @@ function doDisplay() {
 }
 </script>
 <style type="text/css">
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing:border-box;
-}
-.header{
-	font-size: 50px;
-	padding-bottom: 20px;
-}
 
-
-.room {
-	padding-top: 50px;
-	
-}
-
-.roompic{
-	width: 600px;
-	height: 300px;
-	display: block;
-	margin: auto;
-}
 
 /* Slideshow container */
 .slideshow-container {
@@ -147,8 +126,6 @@ function doDisplay() {
   border-radius: 3px 0 0 3px;
 }
 
-
-
 /* The dots/bullets/indicators */
 .dot {
   cursor: pointer;
@@ -162,7 +139,6 @@ function doDisplay() {
 }
 
 
-
 /* Fading animation */
 .fadein {
   -webkit-animation-name: fade;
@@ -170,36 +146,35 @@ function doDisplay() {
   animation-name: fade;
   animation-duration: 1.5s;
 }
-
-
-p{
-	padding-left: 500px;
-	font-size: 30px;
+#main{
+    width: 100%;
+    height: 688px;
 }
-
-#aa>#bb{
-float: left;
+#herder{
+	text-align: center;
+    font-size: 30px;
 }
-#jj{
-text-align: center;}
-
-
-
-
+#aa{
+    width: 16%;
+    float: right;
+    position: relative;
+    right: 285px;
+    top: 50px;
+}
+#ff{
+	width: 100%;
+    height: 133px;
+    position: relative;
+    text-align: center;
+    top: 47px;
+    left: 7.5%;
+}
 </style>
 </head>
 <body>
-<br>
-<br>
+<div id ="main">
+<div id ="herder">객실정보</div><br>
 
-<div style="font-size: 30px; text-align: center;">객실정보</div><br>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<hr>
 <%
 	String hotelname = (String)session.getAttribute("hotelname");
 	String checkin = (String) session.getAttribute("checkin");
@@ -234,44 +209,30 @@ text-align: center;}
 	<img src="images/icon/icon_check.jpg">정기 소독<img src="images/icon/icon_check.jpg">안전거리유지<img src="images/icon/icon_check.jpg">새로운안전프로토콜<br>
 	<img src="images/icon/icon_check.jpg">손 소독제제공<img src="images/icon/icon_check.jpg">체온측정<img src="images/icon/icon_check.jpg">의료서비스<br>
 	<img src="images/icon/icon_check.jpg">룸서비스<img src="images/icon/icon_check.jpg">대응프로토콜<br>
+	
 	<br>
-	<br>
-	<br>
-	 
+
 	<div id="bb">
 	
-	<div style="font-size: 30px;"><a>▶객실 편의시설</a></div><br>
+	<div><a style="font-size: 24px;">▶객실 편의시설</a></div>
 	
-	<img src="images/icon/icon_bath.jpg"><div style="font-size: 23px;">욕실</div>
+	<img src="images/icon/icon_bath.jpg"><div style="font-size: 22px;">욕실</div>
 	<div style="font-size: 18px;">＊<%=bath%><br></div>    
 	
-	
-	<br>
-	
-	<img src="images/icon/icon_eat.jpg"><div style="font-size: 23px;">식음료</div>
+	<img src="images/icon/icon_eat.jpg"><div style="font-size: 22px;">식음료</div>
 	<div style="font-size: 18px;">＊<%=eat%><br></div>
-	<br>
 	
-	<img src="images/icon/icon_etc.jpg"><div style="font-size: 23px;">인터넷</div>
+	
+	<img src="images/icon/icon_etc.jpg"><div style="font-size: 22px;">인터넷</div>
 	<div style="font-size: 18px;">＊<%=internet%></div><br>
-	<br>
+
 	
-	<img src="images/icon/icon_internet.jpg"><div style="font-size: 23px;">기타</div>
+	<img src="images/icon/icon_internet.jpg"><div style="font-size: 22px;">기타</div>
 	<div style="font-size: 18px;">＊<%=etc%></div>
-	<br>
-	
-	<br>
-	
-	
-	
-	<br>
-	<br>
-	<br>
+
 	
 </div>
 	</div>
-	
-
 	<%
 }
 %>
@@ -281,7 +242,6 @@ text-align: center;}
 		List<RoomDTO> list = (List<RoomDTO>) request.getAttribute("roomlist");
 	for (int i = 0; i < list.size(); i++) {
 		RoomDTO dto = list.get(i);
-
 		String seq = dto.getSeq();
 		String name = dto.getName();
 		String hotelseq = dto.getHotelseq();
@@ -294,59 +254,43 @@ text-align: center;}
 
 	<div  id="cc">
 	
-	
 	 <div class="slideshow-container">
-
        <div class="mySlides fadein" >
-        <img src="images/room/<%=room_img%>.jpg" style="width:100%; ">
-        
+        <img src="images/room/<%=room_img%>.jpg" style="width:100%; "> 
       </div>
-
       <div class="mySlides fadein">
         <img src="images/room/<%=room_img_real%>.jpg" style="width:100%;">
       </div>
     
-
-
-
-
       <!-- Next and previous buttons -->
       <a class="prev" onclick="moveSlides(-1)">&#10094;</a>
       <a class="next" onclick="moveSlides(1)">&#10095;</a>
     </div>
-   
-   
-    
-    <br/>
   
-    
-
-
     <!-- The dots/circles -->
-    <div style="text-align:center">
+    <div id ="ff">
+    <div>
       <span class="dot" onclick="currentSlide(0)"></span>
       <span class="dot" onclick="currentSlide(1)"></span>
     </div>
     
-    
-    
-    
-
-    </div>
-    <div id="jj" style="text-align: center;">
+   
+   
+    <div id="jj">
     <a href="RoomReservServlet?u_id=<%=u_id %>&checkin=<%=checkin%>
 				&checkout=<%=checkout%>&guest=<%=guest%>&hotelseq=<%=hotelseq%>&hotelname=<%=hotelname%>
 				&roomseq=<%=seq%>&price=<%=price%>&location=<%=location%>&name=<%=name%>"><div style="font-size:18px;">지금 예약하기</div></a>
 	<br>
-	<div id="ll" style=" text-align: center;">
+	<div id="ll">
 	
 	
-	<span style=" font-size: 30px;"><%=name%></span>
+	<span><%=name%></span>
 </div>
-	<div style="font-size: 17px;">가격  :<%=price %><br>
+	<div>가격  :<%=price %><br>
 	
 	<img src="images/icon/icon_guest.jpg">최대인원수:<%=max_guest%> </div>
-	
+	 </div>
+	</div>
 	</div>
 	
  
@@ -357,6 +301,6 @@ text-align: center;}
 	
 
 	
-
+</div>
 </body>
 </html>
