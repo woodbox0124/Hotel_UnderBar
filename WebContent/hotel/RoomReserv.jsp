@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>예약</title>
-
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="assets/css/default.css">
 <link rel="stylesheet" type="text/css" href="assets/css/font.css">
 <style type="text/css">
@@ -35,7 +35,7 @@ MemberDTO dto = (MemberDTO) session.getAttribute("login");
 
 String phone = dto.getU_phone();
 
-System.out.println("roomjsp : " + checkin + "\t" + checkout + "\t" + guest + "\t" + hotelseq + "\t" + roomseq +"\t" + price + "\t" + u_id + "\t" + phone) ;
+System.out.println("roomjsp : " + name + checkin + "\t" + checkout + "\t" + guest + "\t" + hotelseq + "\t" + roomseq +"\t" + price + "\t" + u_id + "\t" + phone) ;
 %>
 <style type="text/css">
 *{
@@ -125,9 +125,10 @@ form{
 					value="<%=phone%>"> <br><br>
 					요금 : <%=price%><br>
 			</div>
-			<input class="btn btn-primary input_btn" type="button"
+			<input class="btn btn-primary input_btn" type="submit"
 							value="결제하기"/>
 		</div>
 	</form>
+
 </body>
 </html>

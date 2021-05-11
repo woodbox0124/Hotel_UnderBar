@@ -32,7 +32,7 @@ public class ResvCancle extends HttpServlet {
 			ResvService service = new ResvService();
 			int n = service.resvCancel(seq);
 
-			nextPage = "main.jsp";
+			nextPage = "ResvMyServlet";
 
 		} else {// 로그인이 안된 경우
 			nextPage = "LoginUIServlet";

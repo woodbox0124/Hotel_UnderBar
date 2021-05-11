@@ -19,12 +19,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		re.hotelseq and re.roomseq = ro.seq and re.u_id = #{u_id}
 	</select>
 
-	<update id="resvCancel" parameterType="int">
-		update resv set
-		cancel = 1
+	<delete id="resvCancel" parameterType="int">
+		delete from resv
 		where seq = #{seq}
-
-	</update>
+	</delete>
 
 
 	<select id="resvMyList" resultType="ResvMyDTO"

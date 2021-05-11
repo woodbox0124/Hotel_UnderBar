@@ -199,6 +199,7 @@ text-align: center;}
 <br>
 <hr>
 <%
+	String hotelname = (String)session.getAttribute("hotelname");
 	String checkin = (String) session.getAttribute("checkin");
 	String checkout = (String) session.getAttribute("checkout");
 	String guest = (String)session.getAttribute("guest");
@@ -331,7 +332,9 @@ text-align: center;}
 
     </div>
     <div id="jj" style="text-align: center;">
-    <a href="RoomReservServlet?u_id=<%=u_id %>&checkin=<%=checkin%>&checkout=<%=checkout%>&guest=<%=guest%>&hotelseq=<%=hotelseq%>&roomseq=<%=seq%>&price=<%=price%>&location=<%=location%>"><div style="font-size:18px;">지금 예약하기</div></a>
+    <a href="RoomReservServlet?u_id=<%=u_id %>&checkin=<%=checkin%>
+				&checkout=<%=checkout%>&guest=<%=guest%>&hotelseq=<%=hotelseq%>&hotelname=<%=hotelname%>
+				&roomseq=<%=seq%>&price=<%=price%>&location=<%=location%>&name=<%=name%>"><div style="font-size:18px;">지금 예약하기</div></a>
 	<br>
 	<div id="ll" style=" text-align: center;">
 	
