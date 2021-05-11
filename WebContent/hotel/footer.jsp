@@ -30,10 +30,10 @@
 				<li><b>카카오톡 채널</b> : HotelUnderBar </li>
 			</ul>
 			<ul class="foo_right foo">
-				<li><a href="#">개인정보처리방침</a><span class="line"></span></li>
-				<li><a href="#">호텔이용안내</a><span class="line"></span></li>
-				<li><a href="#">이용약관 </a><span class="line"></span></li>
-				<li><a href="#">고객센터</a></li>
+				<li><a href="#" style="color: #F8F4F0;">개인정보처리방침</a><span class="line"></span></li>
+				<li><a href="#" style="color: #F8F4F0;">호텔이용안내</a><span class="line"></span></li>
+				<li><a href="#" style="color: #F8F4F0;">이용약관 </a><span class="line"></span></li>
+				<li><a href="#" style="color: #F8F4F0;">고객센터</a></li>
 			</ul>
 		</div>
 		<div id="certy">
