@@ -27,6 +27,7 @@ a {
 <div id=menu_bar>
 	<a class="a"><%= u_id %>님 어서오세요.</a> <a href="LogoutServlet" class="a">&nbsp;로그아웃</a> 
 	<a href="ResvMyServlet" class="a">&nbsp;예약 확인</a>
+	<a href="BoardListServlet" class="a">Q&A게시판</a>
 	<%
    }else{
 %>
