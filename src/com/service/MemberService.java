@@ -115,5 +115,35 @@ public class MemberService {
 		}
 		return num;
 	}
+
+	public String idSearch(MemberDTO dto) {
+		SqlSession session = MySqlSessionFactory.getSession();
+		String u_id = null;
+		try
+		{
+			MemberDAO dao = new MemberDAO();
+			u_id = dao.idSearch(session, dto);
+		}
+		finally 
+		{
+			session.close();
+		}
+		return u_id;
+	}
+
+	public String pwSearch(MemberDTO dto) {
+		SqlSession session = MySqlSessionFactory.getSession();
+		String u_pw = null;
+		try
+		{
+			MemberDAO dao = new MemberDAO();
+			u_pw = dao.pwSearch(session, dto);
+		}
+		finally 
+		{
+			session.close();
+		}
+		return u_pw;
+	}
 	
 }

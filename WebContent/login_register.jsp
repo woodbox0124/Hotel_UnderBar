@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<html>
 <head>
 <title>로그인 & 회원가입</title>
 <link rel="stylesheet" href="style.css">
@@ -34,9 +33,9 @@
 				error: function(xhr, status, error) {
 					console.log("error")
 				}
-			})
-		})	
-	})
+			});//end ajax
+		});	//end u_id
+	});//end jQuery
 </script>
 <style>
 	#login>p {
@@ -69,7 +68,7 @@ session.removeAttribute("mesg");
 %>
 <!-- 경고 문 끝 -->
 </head>
-<body>
+
 <%
     String msg = (String)request.getAttribute("msg");
     Cookie[] c = request.getCookies();
@@ -97,13 +96,13 @@ session.removeAttribute("mesg");
                 <form id="login" action="LoginServlet" class="input-group" method="post">
                     <input name= "u_id" type="text" class="input-field" placeholder="Enter ID" required>
                     <input name= "u_pw" type="password"  class="input-field" value="<%=cookieVal !="" ? cookieVal : "" %>" placeholder="Enter Password" required>
-                    <p><input name= "savepw" type="checkbox" class="checkbox" <%=cookieVal!=""?"checked" : ""%>><span id="check_span">비밀번호저장 &nbsp;<a href="">아이디/비밀번호찾기</a></span></p>
+                    <p><input name= "savepw" type="checkbox" class="checkbox" <%=cookieVal!=""?"checked" : ""%>><span id="check_span">비밀번호저장 &nbsp;<a href="serachId.jsp" onclick="window.open(this.href, '_blank', 'width=500,height=700,toolbars=no,scrollbars=no'); return false;">아이디/비밀번호찾기</a></span></p>
                     <button class="submit">Login</button>
                     <button class="submit"><a href="main.jsp">메인으로 돌아가기</a></button>                    
                 </form>
                 <form id="register" action="MemberAddServlet" class="input-group" method="post">
-                    <input name ="u_id" id="u_id" type="text" class="input-field u_id" placeholder="ID" required>
-                    <input name ="u_pw1" id="pw1" type="password" class="input-field u_pw1" placeholder="password" required>
+                    <input name ="u_id" id="u_id" type="text" class="input-field u_id" placeholder="아이디" required>
+                    <input name ="u_pw1" id="pw1" type="password" class="input-field u_pw1" placeholder="비밀번호" required>
                     <input name ="u_pw" id="pw" type="password" class="input-field u_pw2" placeholder="password" required>
                     <input name ="u_name" type="text" class="input-field u_name" placeholder="name" required>
                     <input name ="u_email" type="email" class="input-field u_email" placeholder="Email" required>
@@ -129,5 +128,3 @@ session.removeAttribute("mesg");
                 z.style.left = "127.5px";
             }
         </script>
-    </body>
-</html>

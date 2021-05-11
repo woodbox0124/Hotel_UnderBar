@@ -36,4 +36,19 @@ update member set
 	<select id="pwChk" parameterType="string" resultType="int">
 	select count(*) from member where u_pw = #{u_pw}
 	</select>
+	<select id="idSearch" parameterType="MemberDTO" resultType="String">
+	select u_id from member 
+	where 
+	u_name=#{u_name} and 
+	u_phone=#{u_phone} and 
+	u_email=#{u_email}
+	</select>
+	<select id="pwSearch" parameterType="MemberDTO" resultType="String">
+	select u_pw from member 
+	where 
+	u_id=#{u_id} and 
+	u_name=#{u_name} and 
+	u_phone=#{u_phone} and 
+	u_email=#{u_email}
+	</select>		
 </mapper>

@@ -45,5 +45,15 @@ public int idCheck(SqlSession session, String userid)
 		return num;
 	}
 
+	public String idSearch(SqlSession session, MemberDTO dto) {
+		String u_id = session.selectOne("MemberMapper.idSearch", dto);
+		return u_id;
+	}
+
+	public String pwSearch(SqlSession session, MemberDTO dto) {
+		String u_pw = session.selectOne("MemberMapper.pwSearch", dto);
+		return u_pw;
+	}
+
 
 }
