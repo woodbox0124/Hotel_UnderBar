@@ -92,6 +92,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 대댓글 -->
 
 
+<select id="selectauthor" parameterType="int" resultType="string">
+select author from board where num=#{num}
+</select>
 
 
 </mapper>

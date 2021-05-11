@@ -116,4 +116,11 @@ public class BoardDAO {
 		return n;
 	}
 
+	public String selectauthor(SqlSession session, int origin) {
+		String author=session.selectOne("com.board.BoardMapper.selectauthor",origin);
+		return author;
+	}
+
+	
+
 }

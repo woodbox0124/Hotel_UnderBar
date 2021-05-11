@@ -24,13 +24,19 @@ public class BoardRetrive extends HttpServlet {
 		String num= request.getParameter("num");
 		BoardService service= new BoardService();
 		BoardDTO dto= service.selectByNum(num);
-
+		int origin=dto.getOrigin();
+		System.out.println("이글의 origin번호"+origin);
+		
+		String Oauthor=service.selectauthor(origin);
+		System.out.println("이글의 원글자"+Oauthor);
 		
 		HttpSession session=request.getSession();
 		session.setAttribute("retrieve", dto);
+		session.setAttribute("originauthor", Oauthor);
 		
 		RequestDispatcher dis= request.getRequestDispatcher("boardretrieve.jsp");
 		dis.forward(request, response);
+		
 		
 	}
 

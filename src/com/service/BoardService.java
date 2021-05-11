@@ -100,6 +100,22 @@ public class BoardService {
 	}
 	// 댓글
 
+	public String selectauthor(int origin) {
+		SqlSession session = MySqlSessionFactory.getSession();
+		String author=null;
+		try {
+			author=dao.selectauthor(session, origin);
+			
+		} finally {
+			session.close();
+		}
+		
+		return author;
+	}
+
+	
+	
+
 	/*
 	 * public List<BoardDTO> listAll(HashMap<String, String> map) { SqlSession
 	 * session = MySqlSessionFactory.getSession(); List<BoardDTO> list= null; try {

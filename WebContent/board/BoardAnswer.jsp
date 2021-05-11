@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
         <%@page import="com.dto.BoardDTO"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
+    
+<%@page import="com.dto.MemberDTO"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -71,6 +73,9 @@ int origin=dto.getOrigin();
 int groupnum=dto.getGroupnum();
 int grouplayer=dto.getGrouplayer();
 
+MemberDTO dto3 = (MemberDTO) session.getAttribute("login");
+String name=dto3.getU_id();
+
 %>
 <h3 id="title" style="text-align: center;">Q&#38;A 게시판</h3>
 <div class="container" >
@@ -91,7 +96,7 @@ int grouplayer=dto.getGrouplayer();
 		<tr>
 			<td width="65" align="center">작성자</td>
 			<td width="330">
-			<input id="author" type="text" name="author" size="50" value="admin"> <!-- if로 인해 jstl 사용 -->
+			<input id="author" type="text" name="author" size="50" value="<%=name%>"> <!-- if로 인해 jstl 사용 -->
 			</td>
 		</tr>
 		<tr>

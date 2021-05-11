@@ -85,6 +85,8 @@ int readCnt=dto.getReadCnt();
 		System.out.println("로그인한 사람 아이디"+name1);
 		System.out.println("쓴사람 아이디"+name2);
 		%>
+		
+		<%String originauthor=(String)session.getAttribute("originauthor"); %>
 
 <h3 id="title" style="text-align: center;">게시글 보기</h3>
 <form name="myForm">
@@ -124,7 +126,7 @@ int readCnt=dto.getReadCnt();
 	<br>
 	<div style="text-align: center;">
 	<a class="btn btn-primary" href="BoardListServlet">목록보기</a>
-	<% if(name1.equals("admin")) {%> <!-- 이름이 관리자인경우만 답글보이게 -->
+	<% if(name1.equals("admin") || name1.equals(originauthor))  {%> <!-- 이름이 관리자인경우만 답글보이거나 글의 원글을 쓴 userid와 같은 userid를 가지고있으면 답글을 쓸수있게-->
     <a class="btn btn-primary" href="boardAnswer.jsp">답글쓰기</a>
    <%} %>
     </div>
