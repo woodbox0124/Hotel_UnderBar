@@ -36,9 +36,9 @@
 				<li><a href="#" style="color: #F8F4F0;">고객센터</a></li>
 			</ul>
 		</div>
-		<div id="certy">
+		<div id="certy" style="color: #F8F4F0;">
 			HOTEL UNDERBAR [ Easy, Cool, Fancy ]
-				<div class="copy en">ⓒ Copyright HOTEL UNDERBAR All Reserved</div>
+				<div class="copy en" style="color: #F8F4F0;">ⓒ Copyright HOTEL UNDERBAR All Reserved</div>
 			<div class="sns_box">
 					<a href="https://www.facebook.com/woodbox0124" target="_blank">
 						<img src="assets/css/images/fb.png" id="img">
