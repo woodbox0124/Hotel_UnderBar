@@ -2,48 +2,10 @@
     pageEncoding="UTF-8"%>
 <head>
 	
-	<style>
-		/* footer */
-#footer {
-	overflow: hidden;
-	width: 100%;
-	height: 260px;
-}
-
-.sns_box {
-	width: 56px;
-	height: 25px;
-	margin: 0 auto;
-}
-
-.sns_box>a {
-	width: 25px;
-	display: inline-block;
-	float: left;
-	margin: 0 1.5px;
-}
-
-#certy {
-	width: 1200px;
-	margin: 0 auto;
-	text-align: center;
-}
-
-.foo {
-	float: left;
-	margin: 20px 30px;
-	text-align: left;
-}
-
-#footer_wrap {
-	width: 1200px;
-	height: 260px;
-	margin: 0 auto;
-	text-align: center;
-}
-	</style>
+<link rel="stylesheet" type="text/css" href="assets/css/footer.css">
+	
 </head>
-<div id="footer" style="background: #C0847F; color: #F8F4F0; font-weight: lighter;  padding: 15px 0; position: relative;">
+<div id="footer">
 	<div id="footer_wrap">
 		<div style="font-size: 12px; display: inline-block;">
 			<div class="foo_left foo">
@@ -79,10 +41,10 @@
 				<div class="copy en">ⓒ Copyright HOTEL UNDERBAR All Reserved</div>
 			<div class="sns_box">
 					<a href="https://www.facebook.com/woodbox0124" target="_blank">
-						<img src="assets/css/images/fb.png">
+						<img src="assets/css/images/fb.png" id="img">
 					</a>
 					<a href="https://www.instagram.com/woodcase/" target="_blank">
-						<img src="assets/css/images/insta.png">
+						<img src="assets/css/images/insta.png" id="img" style="position: relative; left: 4px;">
 					</a>
 			</div>
 		</div>
