@@ -37,7 +37,7 @@ public class RoomInfoServlet extends HttpServlet {
 		System.out.println("룸상세정보"+list);
 		System.out.println("룸시퀀스받아온 룸리스트정보"+list2);
 		
-		RequestDispatcher dis = request.getRequestDispatcher("hotel/roomdetail.jsp");
+		RequestDispatcher dis = request.getRequestDispatcher("roomdetail.jsp");
 		dis.forward(request, response);
 		
 	}

@@ -6,6 +6,7 @@
 <%@ page import="java.util.List"%>
 <%@ page import="com.dto.MemberDTO"%>
 <%@ page import="com.dto.RoomDTO"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,6 +17,7 @@
 <link rel="stylesheet" type="text/css" href="assets/css/font.css">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+
 <!-- 글꼴 CSS 끝-->
 <link rel="stylesheet" type="text/css" href="assets/css/default.css">
 <style type="text/css">
@@ -162,7 +164,7 @@ function doDisplay() {
 
 
 /* Fading animation */
-.fade {
+.fadein {
   -webkit-animation-name: fade;
   -webkit-animation-duration: 1.5s;
   animation-name: fade;
@@ -295,12 +297,12 @@ text-align: center;}
 	
 	 <div class="slideshow-container">
 
-       <div class="mySlides fade" >
+       <div class="mySlides fadein" >
         <img src="images/room/<%=room_img%>.jpg" style="width:100%; ">
         
       </div>
 
-      <div class="mySlides fade">
+      <div class="mySlides fadein">
         <img src="images/room/<%=room_img_real%>.jpg" style="width:100%;">
       </div>
     
