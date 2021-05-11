@@ -46,6 +46,18 @@ margin-top: 20px;
 margin-bottom: 10px;
 }
 
+#ab
+{
+	background-color: #0D6EFD;
+	color: white;
+	text-align: center;
+}
+
+#write
+{
+	text-align: center;
+}
+
 #texttitle{
 text-overflow: ellipsis; white-space: nowrap; max-width: 40px; /* 40px를 넘어가는 제목일 경우 "제목..."으로 표기됨 */
 }
@@ -54,7 +66,17 @@ text-overflow: ellipsis; white-space: nowrap; max-width: 40px; /* 40px를 넘어
  .tablename:visited { color: black; text-decoration: none;}	
  .tablename:hover { color: black; text-decoration: underline;}
  
-
+ .searchbar
+ {
+ 	text-align: right;
+ 	margin-right: 10px;
+ 	
+ }
+ 
+ #bar{
+	font-size: 15px;
+	width: 300px;
+}
 
 </style>
 
@@ -63,25 +85,25 @@ text-overflow: ellipsis; white-space: nowrap; max-width: 40px; /* 40px를 넘어
 <body>
 <div class="container">
 <h3 id="title" align="center" style="font-weight: bold;"><a class="tablename" href="BoardListServlet">게시글 목록</a></h3>
-<table id="search" class="table table-hover">
+<table id="search" class="table">
 	<tr>
 	 <td colspan="5">
-	  <form action="BoardListServlet" style="text-align: right; margin-right: 10px;">
+	  <form action="BoardListServlet" class="searchbar">
 	   <select name="searchName">
 	    <option value="title">제목</option>
 	    <option value="author">작성자</option>
 	   </select>
-	    <input type="text" name="searchValue">
-	    <input type="submit" value="검색">
+	    <input type="text" id="bar" name="searchValue">
+	    <input type="submit"  class="btn btn-primary" value="검색">
 	 </form>  
 	 </td> 
 	</tr>
-	<tr style="background: #0D6EFD; color: white; font-weight: bold" align="center">
-		<td width="50">번호</td>
-		<td width="220">제 목</td>
-		<td width="100">작성자</td>
-		<td width="100">작성일</td>
-		<td width="50">조회수</td>
+	<tr id = "ab">
+		<td style="color: white;" width="50">번호</td>
+		<td style="color: white;" width="220">제 목</td>
+		<td style="color: white;" width="100">작성자</td>
+		<td style="color: white;" width="100">작성일</td>
+		<td style="color: white;" width="50">조회수</td>
 	</tr>
 	
 <%
@@ -133,13 +155,11 @@ for (BoardDTO dto : list) {
 	</tr>
 		
 	</tbody>
-		
-
-	<tr>
 	<%} %>
+</table>
 
-		 <td> 
-		   <%
+	<div style="text-align: center;">
+	   <%
 		   String searchName = (String)request.getAttribute("searchName");
 			String searchValue = (String)request.getAttribute("searchValue");
 		        int curPage = pDTO.getCurPage();//현재페이지
@@ -154,15 +174,11 @@ for (BoardDTO dto : list) {
 out.print("<a href='BoardListServlet?curPage="+i+"&searchName="+searchName+"&searchValue="+searchValue+"'>"+i+"</a>&nbsp;"); 		          	}
 		        }//end for
 		   %>
-		
-		
-		  </td>
-		<td style="text-align: right;">
-		<a  style="text-align: right;" class="btn btn-primary" href="BoardWriteUIServlet"  >글쓰기</a>		
-</td>
-</table>
+		   </div><br>
 
-
+<div id="write">
+<a class="btn btn-primary" href="BoardWriteUIServlet">글쓰기</a>	
+</div>
 
 	
 </div>

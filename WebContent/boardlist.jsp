@@ -69,7 +69,7 @@ a {
 			</div>
 		</div>
 	</nav>
-	<jsp:include page="board/list.jsp" flush="true" />
+	<jsp:include page="board/list.jsp" flush="true" /><br>
 	<jsp:include page="hotel/footer.jsp" flush="true"></jsp:include>
 </body>
 </html>

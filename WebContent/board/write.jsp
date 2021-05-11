@@ -38,7 +38,7 @@ table {
   }
   
 #table{
-width: 550px;
+width: 505px;
 margin-bottom: 30px;
 }
 
@@ -65,33 +65,26 @@ MemberDTO dto = (MemberDTO) session.getAttribute("login");
 <table id="table" style="margin: 0 auto" border="1">
 		<tr>
 			<td width="70" align="center">제목</td>
-			<td width="330"><input name="title" type="text" id="title"></td>
+			<td><input name="title" size="45" type="text" id="title"></td>
 		</tr>
 		<tr>
 			<td width="70" align="center">작성자</td>
-			<td width="330"><input type="text" name="author" id="author" value="<%=dto.getU_id()%>"></td>
+			<td ><input type="text" size="45" name="author" id="author" value="<%=dto.getU_id()%>"></td>
 		</tr>
 		<tr>
 			<td width="70" align="center">글내용</td>
-			<td width="330">
-			<textarea rows="25" cols="30" name="content" id="content"></textarea>
+			<td >
+			<textarea style="width: 426px; height: 500px; resize: none;" rows="25" cols="30" name="content" id="content"></textarea>
 				
 			</td>
 		</tr>
-		
-		
-			<tr>
-			<td colspan="2" align="center">
-			<input class="btn btn-primary" type="submit" value="글쓰기">
-			<input class="btn btn-primary" type="reset" value="다시작성"> 
-			<a class="btn btn-primary" href="boardlist.jsp">목록보기</a>
-			</td>
-		</tr>
-			
-	<tr class="aa">
-	</tr>
 	</table>
 	</form>	
+		<div style="text-align: center;">
+	<input class="btn btn-primary" type="submit" value="글쓰기">
+			<input class="btn btn-primary" type="reset" value="다시작성"> 
+			<a class="btn btn-primary" href="boardlist.jsp">목록보기</a>
+	</div>
 	</div>
 	
 </body>

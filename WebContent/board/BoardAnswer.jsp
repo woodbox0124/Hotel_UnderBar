@@ -42,6 +42,10 @@ margin-bottom: 10px;
 margin-left: 25px;
 }
 
+#table{
+width: 505px;
+}
+
 </style>
 	
 <meta charset="UTF-8">
@@ -77,42 +81,41 @@ MemberDTO dto3 = (MemberDTO) session.getAttribute("login");
 String name=dto3.getU_id();
 
 %>
-<h3 id="title" style="text-align: center;">Q&#38;A 게시판</h3>
+<h3 id="title" style="text-align: center;">답글 게시판</h3>
 <div class="container" >
 <form action="BoardAnswerServlet" method="post" onsubmit="return formcheck()">
 	<input type="hidden" name="num" value="<%=num%>">
 	<input type="hidden" name="groupnum" value="<%=groupnum%>">
     <input type="hidden" name="grouplayer" value="<%=grouplayer%>">
     <input type="hidden" name="origin" value="<%=origin%>">
-	<table style="margin: 0 auto;" border="1">
+	<table id="table" style="margin: 0 auto;" border="1">
 
 		<tr>
 			
-			<td width="50" align="center">제목</td>
-			<td width="330">
-			<input type="text" name="title" id="title">
+			<td width="70" align="center">제목</td>
+			<td>
+			<input type="text" size="45" name="title" id="title">
 			</td>
 		</tr>
 		<tr>
-			<td width="65" align="center">작성자</td>
-			<td width="330">
-			<input id="author" type="text" name="author" size="50" value="<%=name%>"> <!-- if로 인해 jstl 사용 -->
+			<td width="70" align="center">작성자</td>
+			<td>
+			<input id="author" size="45" type="text" name="author" size="50" value="<%=name%>"> <!-- if로 인해 jstl 사용 -->
 			</td>
 		</tr>
 		<tr>
 			<td width="70" align="center">내용</td>
-			<td width="330">
-			<textarea id="content" rows="13" cols="50" name="content" style="resize: none;"></textarea>
+			<td>
+			<textarea id="content" rows="13" cols="50" name="content" style="resize: none; width: 425px; height: 500px;"></textarea>
 			</td>
-		</tr>
-		<tr>
-			<td colspan="2" align="center">
-			<input class="btn btn-primary" type="submit" value="답글쓰기">
-			<input class="btn btn-primary" type="reset" value="다시작성"> 
-			<a class="btn btn-primary" href="BoardListServlet">목록보기</a>
 		</tr>
 	</table> 
 </form>
+	<div style="text-align: center;">
+			<input class="btn btn-primary" type="submit" value="답글쓰기">
+			<input class="btn btn-primary" type="reset" value="다시작성"> 
+			<a class="btn btn-primary" href="BoardListServlet">목록보기</a>
+			</div>
 </div>
 </body>
 </html>

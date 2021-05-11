@@ -38,7 +38,7 @@ table {
   }
   
 #table{
-width: 550px;
+width: 505px;
 }
 
 #title{
@@ -94,21 +94,18 @@ int readCnt=dto.getReadCnt();
 <table id="table" style="margin: 0 auto" border="1">
 		<tr>
 			<td width="70" align="center">작성자</td>
-			<td width="330"><input type="text" value="<%=author %>" name="author"></td>
+			<td><input type="text" size="45" value="<%=author %>" name="author"></td>
 		</tr>
 		<tr>
 			<td width="70" align="center">글제목</td>
-			<td width="330"><input type="text" value="<%=title %>" name="title"></td>
+			<td><input type="text" size="45" value="<%=title %>" name="title"></td>
 		</tr>
 		<tr>
 			<td width="70" align="center">글내용</td>
-			<td width="330">
-			<textarea rows="10" cols="30" name="content"><%=content%></textarea>
-				<div style="width: 100%; height: 200px; overflo: scroll;"><!-- content--></div>
+			<td >
+			<textarea style="margin-left: 1px; width: 425px; height: 500px; resize: none;" rows="10" cols="30" name="content"><%=content%></textarea>
 			</td>
 		</tr>
-		
-		
 			<tr>
 			<td colspan="2" align="center">
 			<%if (name1.equals(name2)) {%>
@@ -117,12 +114,9 @@ int readCnt=dto.getReadCnt();
              <%} %>
 			</td>
 		</tr>
-			
-			
-		
 	</table>
-	</form>	
-	<br>
+	</form>
+	
 	<br>
 	<div style="text-align: center;">
 	<a class="btn btn-primary" href="BoardListServlet">목록보기</a>

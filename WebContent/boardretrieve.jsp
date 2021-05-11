@@ -80,7 +80,7 @@ a {
 			</div>
 		</div>
 	</nav>
-	<jsp:include page="board/retrieve.jsp" flush="true" />
+	<jsp:include page="board/retrieve.jsp" flush="true" /><br>
 	<jsp:include page="hotel/footer.jsp" flush="true"></jsp:include>
 </body>
 </html>
