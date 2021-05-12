@@ -158,8 +158,8 @@ function doDisplay() {
     width: 16%;
     float: right;
     position: relative;
-    right: 285px;
-    top: 50px;
+    right: 255px;
+    top: 47px;
 }
 #ff{
 	width: 100%;
@@ -263,16 +263,16 @@ function doDisplay() {
       </div>
     
       <!-- Next and previous buttons -->
-      <a class="prev" onclick="moveSlides(-1)">&#10094;</a>
-      <a class="next" onclick="moveSlides(1)">&#10095;</a>
+      <!-- <a class="prev" onclick="moveSlides(-1)">&#10094;</a>
+      <a class="next" onclick="moveSlides(1)">&#10095;</a> -->
     </div>
   
     <!-- The dots/circles -->
     <div id ="ff">
-    <div>
+   <!--  <div>
       <span class="dot" onclick="currentSlide(0)"></span>
       <span class="dot" onclick="currentSlide(1)"></span>
-    </div>
+    </div> -->
     
    
    
