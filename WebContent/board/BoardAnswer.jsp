@@ -109,13 +109,15 @@ String name=dto3.getU_id();
 			<textarea id="content" rows="13" cols="50" name="content" style="resize: none; width: 425px; height: 500px;"></textarea>
 			</td>
 		</tr>
-	</table> 
-</form>
-	<div style="text-align: center;">
-			<input class="btn btn-primary" type="submit" value="답글쓰기">
+		<tr style="text-align: center;">
+		<td colspan="2">
+					<input class="btn btn-primary" type="submit" value="답글쓰기">
 			<input class="btn btn-primary" type="reset" value="다시작성"> 
 			<a class="btn btn-primary" href="BoardListServlet">목록보기</a>
-			</div>
+			</td>
+			</tr>
+	</table> 
+</form>
 </div>
 </body>
 </html>
