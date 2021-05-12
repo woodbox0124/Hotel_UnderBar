@@ -96,7 +96,6 @@ String mu_name = mdto.getU_name();
 					<th id="resvdate">예약날짜</th>
 					<th id="guest">인원 수</th>
 					<th id="price">가격</th>
-					<th id="test">수정</th>
 					<th id="cancel">취소</th>
 
 				</tr>
@@ -139,11 +138,6 @@ String mu_name = mdto.getU_name();
 					<td><%=guest%></td>
 					<td><%=price%></td>
 
-
-					<td>
-						<button type="button" class="btn btn-outline-primary"
-							style="margin-bottom: 15px">수정</button>
-					</td>
 					<td>
 						<button type="button" class="btn btn-outline-primary cancel"
 							style="margin-bottom: 15px" data-xxx="<%=seq%>">취소</button>
