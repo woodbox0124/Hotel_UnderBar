@@ -10,8 +10,8 @@
 		<div style="font-size: 12px; display: inline-block;">
 			<div class="foo_left foo">
 				<ul>
-					<li class="cs_center"><strong>010-9770-5298</strong></li>
-					<li class="bank_info"><strong>110-354-583312</strong></li>
+					<li class="cs_center"><strong>전화번호: 010-9770-5298</strong></li>
+					<li class="bank_info"><strong>계좌번호: 110-354-583312</strong></li>
 					<li>신한은행 <br>예금주 : 이석종(CEFO)
 					</li>
 					<li>고객센터 : 010-9770-5298<br>운영시간 10:00 ~
