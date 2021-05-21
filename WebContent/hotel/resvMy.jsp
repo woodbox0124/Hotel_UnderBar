@@ -69,6 +69,20 @@ if (mesg != null) {
 	session.removeAttribute("mesg");
 }
 %>
+
+<%
+	String rvmesg = (String) session.getAttribute("rvmesg");
+if (rvmesg != null) {
+%>
+<script type="text/javascript">
+     alert('<%=rvmesg%>');
+</script>
+<%
+	session.removeAttribute("rvmesg");
+}
+%>
+
+
 </head>
 
 <%
@@ -104,7 +118,7 @@ String mu_name = mdto.getU_name();
 					/* List<ResvMyDTO> list = (List<ResvMyDTO>) request.getAttribute("resvMy");
 				for (int i = 0; i < list.size(); i++) {
 					ResvMyDTO dto = list.get(i); */
-					ResvPageDTO RpDTO = (ResvPageDTO)request.getAttribute("RpDTO");
+					ResvPageDTO RpDTO = (ResvPageDTO)session.getAttribute("RpDTO");
 					
 					List<ResvMyDTO> list = RpDTO.getList();
 					
@@ -141,6 +155,7 @@ String mu_name = mdto.getU_name();
 					<td>
 						<button type="button" class="btn btn-outline-primary cancel"
 							style="margin-bottom: 15px" data-xxx="<%=seq%>">취소</button>
+						<a href="review/ReviewWrite.jsp?hotelname=<%=hotelname%>">리뷰쓰기</a>
 					</td>
 				</tr>
 				<%

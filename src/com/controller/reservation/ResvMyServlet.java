@@ -49,7 +49,7 @@ public class ResvMyServlet extends HttpServlet {
 			 * List<ResvMyDTO> list = service.resvMy(u_id); for (ResvMyDTO resvDTO : list) {
 			 * System.out.println(resvDTO); }
 			 */
-			request.setAttribute("RpDTO", RpDTO);
+			session.setAttribute("RpDTO", RpDTO);
 			/* request.setAttribute("resvMy", list); */
 		} else {// 로그인이 안된 경우
 			nextPage = "LoginUIServlet";

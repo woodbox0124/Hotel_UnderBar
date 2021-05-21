@@ -355,7 +355,8 @@ String guest = (String) session.getAttribute("guest");%>
 						<p class="card-text">
 							<span style="color: red;"><%= rating %></span> <span id="place"><%= place %></span>
 						</p>
-
+						
+						<a href="ReviewServlet?hotelname=<%=hotelname%>">리뷰보기</a>
 						<a
 							href="RoomSearchServlet?hotelname=<%=hotelname%>&seq=<%=seq%>&checkin=<%=checkin%>&checkout=<%=checkout%>&place=<%=place%>"
 							class="btn btn-primary">OPEN</a>
