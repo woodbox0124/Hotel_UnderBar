@@ -25,7 +25,7 @@ public class ReviewWriteServlet extends HttpServlet {
 		   String content=(String)request.getParameter("content");
 		   String u_id=(String)request.getParameter("u_id");
 		   String title=(String)request.getParameter("title");
-		   System.out.println("리뷰리뷰리뷰============="+u_id+title+content+hotelname);
+		   String rating=(String)request.getParameter("star");
 		   
 		   ReviewService service= new ReviewService();
 		   ReviewDTO dto= new ReviewDTO();
@@ -42,8 +42,6 @@ public class ReviewWriteServlet extends HttpServlet {
 		   
 		   RequestDispatcher dis = request.getRequestDispatcher("resvMy.jsp");
 			dis.forward(request, response);
-		   
-		   
 		   
 		   
 		   

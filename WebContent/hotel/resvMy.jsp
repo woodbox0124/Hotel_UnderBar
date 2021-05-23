@@ -12,6 +12,31 @@
 
 <html>
 <head>
+<%
+					/* List<ResvMyDTO> list = (List<ResvMyDTO>) request.getAttribute("resvMy");
+				for (int i = 0; i < list.size(); i++) {
+					ResvMyDTO dto = list.get(i); */
+					ResvPageDTO RpDTO = (ResvPageDTO)session.getAttribute("RpDTO");
+					
+					List<ResvMyDTO> list = RpDTO.getList();
+					
+					for (int i = 0; i < list.size(); i++){
+					
+					ResvMyDTO dto = list.get(i);
+					int seq = dto.getSeq();
+					double rating = dto.getRating();
+					String hotelname = dto.getHotelname();
+					String addr = dto.getAddr();
+					String roomname = dto.getRoomname();
+					String checkin = dto.getCheckin();
+					String checkout = dto.getCheckout();
+					String resvdate = dto.getResvdate();
+					int guest = dto.getGuest();
+					int price = dto.getPrice();
+					int cancel = dto.getCancel();
+
+					if (cancel == 0) {
+				%>
 <!-- 글꼴 -->
 <link rel="stylesheet" type="text/css" href="assets/css/font.css">
 <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -41,6 +66,15 @@
         	location.href="ResvCancle?seq="+seq;
           }
      })   
+ });
+ 
+ $(function(){ //리뷰쓰기 팝업창구현
+	 $("#a").click(function(){
+		 var url= "review/ReviewWrite.jsp?<%=hotelname%>";    
+		 var name="popup test"
+		 var option="width = 500, height=500, top=100,left=200";
+		 window.open(url,name,option);
+	 })
  });
  
  window.onload = function() {
@@ -114,31 +148,7 @@ String mu_name = mdto.getU_name();
 
 				</tr>
 
-				<%
-					/* List<ResvMyDTO> list = (List<ResvMyDTO>) request.getAttribute("resvMy");
-				for (int i = 0; i < list.size(); i++) {
-					ResvMyDTO dto = list.get(i); */
-					ResvPageDTO RpDTO = (ResvPageDTO)session.getAttribute("RpDTO");
-					
-					List<ResvMyDTO> list = RpDTO.getList();
-					
-					for (int i = 0; i < list.size(); i++){
-					
-					ResvMyDTO dto = list.get(i);
-					int seq = dto.getSeq();
-					double rating = dto.getRating();
-					String hotelname = dto.getHotelname();
-					String addr = dto.getAddr();
-					String roomname = dto.getRoomname();
-					String checkin = dto.getCheckin();
-					String checkout = dto.getCheckout();
-					String resvdate = dto.getResvdate();
-					int guest = dto.getGuest();
-					int price = dto.getPrice();
-					int cancel = dto.getCancel();
-
-					if (cancel == 0) {
-				%>
+				
 
 				<tr>
 
@@ -155,7 +165,7 @@ String mu_name = mdto.getU_name();
 					<td>
 						<button type="button" class="btn btn-outline-primary cancel"
 							style="margin-bottom: 15px" data-xxx="<%=seq%>">취소</button>
-						<a href="review/ReviewWrite.jsp?hotelname=<%=hotelname%>">리뷰쓰기</a>
+						<button id="a"> <!--  <a href="review/ReviewWrite.jsp?hotelname=<%=hotelname%>">-->리뷰쓰기</button>
 					</td>
 				</tr>
 				<%
