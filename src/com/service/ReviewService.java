@@ -37,4 +37,17 @@ public class ReviewService {
 		return list;
 	}
 
+	public int reviewDelete(int num) {
+		ReviewDAO dao = new ReviewDAO();
+		SqlSession session = MySqlSessionFactory.getSession();
+		int n = 0;
+		try {
+			dao.reviewDelete(session, num);
+			session.commit();
+		} finally {
+			session.close();
+		}
+		return n;
+	}
+
 }

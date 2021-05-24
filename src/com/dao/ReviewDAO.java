@@ -22,4 +22,9 @@ public class ReviewDAO {
 		
 	}
 
+	public int reviewDelete(SqlSession session, int num) {
+		int n = session.delete("com.review.ReviewMapper.reviewDelete",num);
+		return n;
+	}
+
 }

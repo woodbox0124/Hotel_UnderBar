@@ -30,7 +30,8 @@ public class ReviewServlet extends HttpServlet {
 	
 	System.out.println("해당 호텔의 리뷰리스트들"+list);
 	
-	RequestDispatcher dis=request.getRequestDispatcher("review/Reviewlist.jsp");
+	
+	RequestDispatcher dis=request.getRequestDispatcher("reviewlist.jsp");
 	dis.forward(request, response);
 	
 	
