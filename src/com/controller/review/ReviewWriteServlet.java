@@ -26,6 +26,8 @@ public class ReviewWriteServlet extends HttpServlet {
 		   String u_id=(String)request.getParameter("u_id");
 		   String title=(String)request.getParameter("title");
 		   String rating=(String)request.getParameter("star");
+		   String file=(String)request.getParameter("file");
+		   
 		   
 		   ReviewService service= new ReviewService();
 		   ReviewDTO dto= new ReviewDTO();
@@ -33,6 +35,8 @@ public class ReviewWriteServlet extends HttpServlet {
 		   dto.setTitle(title);
 		   dto.setContent(content);
 		   dto.setHotelname(hotelname);
+		   dto.setRating(Integer.parseInt(rating));
+		   dto.setReview_img(file);
 		   
 		   service.write(dto);
 		   
@@ -40,7 +44,7 @@ public class ReviewWriteServlet extends HttpServlet {
 		   session.setAttribute("rvmesg", "리뷰작성이 완료되었습니다.");
 		   
 		   
-		   RequestDispatcher dis = request.getRequestDispatcher("resvMy.jsp");
+		   RequestDispatcher dis = request.getRequestDispatcher("review/reviewend.jsp");
 			dis.forward(request, response);
 		   
 		   

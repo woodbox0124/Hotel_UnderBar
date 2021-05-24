@@ -7,9 +7,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 리뷰게시글 추가 -->
 	<insert id="write" parameterType="ReviewDTO">
-		insert into review(num, title, u_id, content,origin,hotelname)
+		insert into review(num, title, u_id, content,origin,hotelname,rating,review_img)
 		values (review_seq.nextval, #{title}, #{u_id},
-		#{content},review_seq.nextval,#{hotelname})
+		#{content},review_seq.nextval,#{hotelname},#{rating},#{review_img})
 	</insert>
 	<!-- 리뷰게시글 추가 -->
 

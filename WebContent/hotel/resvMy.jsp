@@ -70,7 +70,7 @@
  
  $(function(){ //리뷰쓰기 팝업창구현
 	 $("#a").click(function(){
-		 var url= "review/ReviewWrite.jsp?<%=hotelname%>";    
+		 var url= "review/ReviewWrite.jsp?hotelname=<%=hotelname%>";    
 		 var name="popup test"
 		 var option="width = 500, height=500, top=100,left=200";
 		 window.open(url,name,option);
@@ -104,17 +104,6 @@ if (mesg != null) {
 }
 %>
 
-<%
-	String rvmesg = (String) session.getAttribute("rvmesg");
-if (rvmesg != null) {
-%>
-<script type="text/javascript">
-     alert('<%=rvmesg%>');
-</script>
-<%
-	session.removeAttribute("rvmesg");
-}
-%>
 
 
 </head>
@@ -165,7 +154,7 @@ String mu_name = mdto.getU_name();
 					<td>
 						<button type="button" class="btn btn-outline-primary cancel"
 							style="margin-bottom: 15px" data-xxx="<%=seq%>">취소</button>
-						<button id="a"> <!--  <a href="review/ReviewWrite.jsp?hotelname=<%=hotelname%>">-->리뷰쓰기</button>
+						<button id="a">리뷰쓰기</button>
 					</td>
 				</tr>
 				<%

@@ -20,10 +20,11 @@
 
 </head>
 <body>
-<%String hotelname=request.getParameter("hotelname"); %>
+<%String hotelname=request.getParameter("hotelname");
+%>
 <form action="../ReviewWriteServlet" method="get" >
 <input type="hidden" id="hotelname" name="hotelname" value="<%=hotelname%>">
-<select id="star">
+<select id="star" name="star">
 	<option value="1">1</option>
 	<option value="2">2</option>
 	<option value="3">3</option>
@@ -34,11 +35,12 @@
 MemberDTO mdto = (MemberDTO) session.getAttribute("login");
 String mu_id = mdto.getU_id();
 %>
+작성자(ID): <input type="text" name="u_id" id="u_id" value="<%=mu_id%>"><br>
 제목: <input type="text" name="title" id="title"><br>
-작성자: <input type="text" name="u_id" id="u_id" value="<%=mu_id%>"><br>
 내용: <input type="text" name="content" id="content"><br>
 <input type="file" id="file" name="file" class="image_inputType_file" accept="img/*">
-<input type="submit" value="제출">
+<input type="reset" value="초기화">
+<button class="btn btn-block btn-primary" type="submit">리뷰 등록</button>
 </form>
 </body>
 </html>
