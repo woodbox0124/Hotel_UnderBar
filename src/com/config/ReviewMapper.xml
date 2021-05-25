@@ -17,10 +17,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	select num,title, u_id, content,TO_CHAR(writedate, 'YYYY/MM/DD')writedate, origin,groupnum,hotelname,rating,review_img from review order by origin desc,groupnum asc
 	</select>
 
+	<select id="reviewOrder" parameterType="string" resultType="ReviewDTO">
+	select num,title, u_id, content,TO_CHAR(writedate, 'YYYY/MM/DD')writedate, origin,groupnum,hotelname,rating,review_img from review order by origin asc,groupnum asc
+	</select>
+	
 	<delete id="reviewDelete" parameterType="int">
-	delete from review where num=#{num}
+	delete from review where origin=#{origin}
 	</delete>
 
-
+	<delete id="reviewAdminDelete" parameterType="int">
+	delete from review where num=#{num}
+	</delete>
 
 </mapper>

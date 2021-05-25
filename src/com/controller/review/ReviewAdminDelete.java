@@ -10,16 +10,17 @@ import javax.servlet.http.HttpServletResponse;
 import com.service.ReviewService;
 
 
-@WebServlet("/ReviewDeleteServlet")
-public class ReviewDeleteServlet extends HttpServlet {
+@WebServlet("/ReviewAdminDelete")
+public class ReviewAdminDelete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+       
    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int origin = Integer.parseInt(request.getParameter("origin"));
-		System.out.println(origin);
+		int num = Integer.parseInt(request.getParameter("num"));
+		System.out.println(num);
 		
 		ReviewService service = new ReviewService();
-		int n = service.reviewDelete(origin);
+		int n = service.reviewAdminDelete(num);
 		response.sendRedirect("ReviewServlet");
 	}
 

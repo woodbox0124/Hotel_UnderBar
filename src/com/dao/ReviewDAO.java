@@ -22,9 +22,20 @@ public class ReviewDAO {
 		
 	}
 
-	public int reviewDelete(SqlSession session, int num) {
-		int n = session.delete("com.review.ReviewMapper.reviewDelete",num);
+	public int reviewDelete(SqlSession session, int origin) {
+		int n = session.delete("com.review.ReviewMapper.reviewDelete",origin);
 		return n;
+	}
+
+	public List<ReviewDTO> reviewOrder(SqlSession session, String hotelname) {
+		List<ReviewDTO> list=session.selectList("com.review.ReviewMapper.reviewOrder",hotelname );
+		return list;
+	}
+
+	public int reviewAdminDelete(SqlSession session, int num) {
+		int n = session.delete("com.review.ReviewMapper.reviewAdminDelete",num);
+		return n;
+		
 	}
 
 }

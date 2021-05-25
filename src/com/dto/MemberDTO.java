@@ -6,7 +6,25 @@ public class MemberDTO {
 	private String u_name;
 	private String u_email;
 	private String u_phone;
-	
+	private int admin;
+	public MemberDTO() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public MemberDTO(String u_id, String u_pw, String u_name, String u_email, String u_phone, int admin) {
+		super();
+		this.u_id = u_id;
+		this.u_pw = u_pw;
+		this.u_name = u_name;
+		this.u_email = u_email;
+		this.u_phone = u_phone;
+		this.admin = admin;
+	}
+	@Override
+	public String toString() {
+		return "MemberDTO [u_id=" + u_id + ", u_pw=" + u_pw + ", u_name=" + u_name + ", u_email=" + u_email
+				+ ", u_phone=" + u_phone + ", admin=" + admin + "]";
+	}
 	public String getU_id() {
 		return u_id;
 	}
@@ -37,22 +55,13 @@ public class MemberDTO {
 	public void setU_phone(String u_phone) {
 		this.u_phone = u_phone;
 	}
-	@Override
-	public String toString() {
-		return "MemberDTO [u_id=" + u_id + ", u_pw=" + u_pw + ", u_name=" + u_name + ", u_email=" + u_email
-				+ ", u_phone=" + u_phone + "]";
+	public int getAdmin() {
+		return admin;
 	}
-	public MemberDTO() {
-		super();
-		// TODO Auto-generated constructor stub
+	public void setAdmin(int admin) {
+		this.admin = admin;
 	}
-	public MemberDTO(String u_id, String u_pw, String u_name, String u_email, String u_phone) {
-		super();
-		this.u_id = u_id;
-		this.u_pw = u_pw;
-		this.u_name = u_name;
-		this.u_email = u_email;
-		this.u_phone = u_phone;
-	}
+	
+	
    
 }
