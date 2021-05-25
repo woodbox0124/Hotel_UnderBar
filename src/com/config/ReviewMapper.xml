@@ -14,7 +14,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 리뷰게시글 추가 -->
 
 	<select id="review" parameterType="string" resultType="ReviewDTO">
-	select num,title, u_id, content,TO_CHAR(writedate, 'YYYY/MM/DD')writedate, origin,groupnum,hotelname,rating from review order by origin desc,groupnum asc
+	select num,title, u_id, content,TO_CHAR(writedate, 'YYYY/MM/DD')writedate, origin,groupnum,hotelname,rating,review_img from review order by origin desc,groupnum asc
 	</select>
 
 	<delete id="reviewDelete" parameterType="int">

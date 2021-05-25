@@ -71,6 +71,9 @@ for(int i=0; i<list.size(); i++){
 	int num = dto2.getNum();
 	int origin = dto2.getOrigin();
 	double rating = dto2.getRating();
+	String img=dto2.getReview_img();
+	
+	
 %>
 <%
 if(groupnum == 1){
@@ -92,7 +95,7 @@ if(u_id1.equals(u_id2)){
 
 <details>
   <summary><%=title %></summary> 
-  <p>이미지</p>
+  <img src="reviewFolder/<%=img%>">
   <p><%=content%></p>
 </details><br>	
 <%

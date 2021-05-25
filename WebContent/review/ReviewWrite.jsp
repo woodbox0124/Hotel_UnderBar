@@ -22,7 +22,7 @@
 <body>
 <%String hotelname=request.getParameter("hotelname");
 %>
-<form action="../ReviewWriteServlet" method="get" >
+<form action="../ReviewWriteServlet" method="post" enctype="multipart/form-data" >
 <input type="hidden" id="hotelname" name="hotelname" value="<%=hotelname%>">
 <select id="star" name="star">
 	<option value="1">1</option>
@@ -38,9 +38,9 @@ String mu_id = mdto.getU_id();
 작성자(ID): <input type="text" name="u_id" id="u_id" value="<%=mu_id%>"><br>
 제목: <input type="text" name="title" id="title"><br>
 내용: <input type="text" name="content" id="content"><br>
-<input type="file" id="file" name="file" class="image_inputType_file" accept="img/*">
+<input type="file" value="파일 선택" name="file"/>
 <input type="reset" value="초기화">
-<button class="btn btn-block btn-primary" type="submit">리뷰 등록</button>
+<input type="submit" value="업로드"/>
 </form>
 </body>
 </html>
